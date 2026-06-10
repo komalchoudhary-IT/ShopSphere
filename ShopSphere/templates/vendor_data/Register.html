@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Registration | ShopSphere</title>
+
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+</head>
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            ShopSphere
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Vendor Login</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- Registration Section -->
+
+    <section class="register-section">
+
+        <div class="register-container">
+
+            <h1>Vendor Registration</h1>
+
+            <p>
+                Join ShopSphere and start selling your products online.
+            </p>
+
+            <form action="" method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="full_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Shop Name</label>
+                    <input type="text" name="shop_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label>GST Number</label>
+                    <input type="text" name="gst_number">
+                </div>
+
+                <div class="form-group">
+                    <label>Shop Address</label>
+                    <textarea name="address" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Shop Description</label>
+                    <textarea name="description" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Shop Logo</label>
+                    <input type="file" name="shop_logo">
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirm_password" required>
+                </div>
+
+                <div class="checkbox-group">
+
+                    <input type="checkbox" required>
+
+                    <label>
+                        I agree to the
+                        <a href="terms.html">Terms & Conditions</a>
+                        and
+                        <a href="privacy.html">Privacy Policy</a>
+                    </label>
+
+                </div>
+
+                <button type="submit" class="btn">
+                    Register As Vendor
+                </button>
+
+            </form>
+
+            <div class="redirect-link">
+
+                <p>
+                    Already have an account?
+                    <a href="#">Login Here</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-section">
+
+                <h3>Contact Us</h3>
+
+                <p>
+                    Email:
+                    <a href="mailto:support@shopsphere.com">
+                        support@shopsphere.com
+                    </a>
+                </p>
+
+                <p>
+                    Phone:
+                    <a href="tel:+919999999999">
+                        +91 99999 99999
+                    </a>
+                </p>
+
+                <p>Jaipur, Rajasthan, India</p>
+
+            </div>
+
+            <div class="footer-section">
+
+                <h3>Follow Us</h3>
+
+                <a href="https://facebook.com" target="_blank">
+                    Facebook
+                </a>
+
+                <a href="https://instagram.com" target="_blank">
+                    Instagram
+                </a>
+
+                <a href="https://linkedin.com" target="_blank">
+                    LinkedIn
+                </a>
+
+                <a href="https://twitter.com" target="_blank">
+                    Twitter / X
+                </a>
+
+            </div>
+
+            <div class="footer-section">
+
+                <h3>Quick Links</h3>
+
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="privacy.html">Privacy Policy</a>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 ShopSphere. All Rights Reserved.
+        </div>
+
+    </footer>
+
+</body>
+</html>

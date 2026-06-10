@@ -1,0 +1,1329 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================
+   GLOBAL STYLES
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8fafc;
+    color:#334155;
+    min-height:100vh;
+}
+
+a{
+    text-decoration:none;
+}
+
+ul{
+    list-style:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+/* ==========================================
+   COMMON BUTTONS
+========================================== */
+
+.btn{
+    display:inline-block;
+    padding:12px 24px;
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:14px;
+    font-weight:600;
+}
+
+.btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+.secondary-btn{
+    background:#1e293b;
+}
+
+.secondary-btn:hover{
+    background:#0f172a;
+}
+
+.btn-danger{
+    background:#ef4444;
+}
+
+.btn-danger:hover{
+    background:#dc2626;
+}
+
+.btn-success{
+    background:#22c55e;
+}
+
+.btn-success:hover{
+    background:#16a34a;
+}
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar{
+    background:#ffffff;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 15px rgba(0,0,0,0.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#2563eb;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links li a{
+    color:#334155;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links li a:hover{
+    color:#2563eb;
+}
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero{
+    min-height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:50px;
+    background:linear-gradient(
+        rgba(37,99,235,0.85),
+        rgba(30,41,59,0.85)
+    );
+    color:white;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.hero-content h1{
+    font-size:58px;
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+.hero-content p{
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+/* ==========================================
+   FEATURES SECTION
+========================================== */
+
+.features{
+    padding:80px 8%;
+}
+
+.features h2{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:36px;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.feature-card{
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+}
+
+.feature-card h3{
+    margin-bottom:15px;
+    color:#2563eb;
+}
+
+/* ==========================================
+   STATS SECTION
+========================================== */
+
+.stats{
+    padding:70px 8%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.stat-card{
+    background:#fff;
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.stat-card h3{
+    color:#2563eb;
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+/* ==========================================
+   CTA SECTION
+========================================== */
+
+.cta{
+    padding:90px 8%;
+    text-align:center;
+    background:#1e293b;
+    color:white;
+}
+
+.cta h2{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.cta p{
+    margin-bottom:30px;
+    font-size:18px;
+}
+
+/* ==========================================
+   REGISTER PAGE
+========================================== */
+
+.register-section{
+    padding:70px 20px;
+}
+
+.register-container{
+    max-width:800px;
+    margin:auto;
+    background:#fff;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.register-container h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.register-container p{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* ==========================================
+   LOGIN PAGE
+========================================== */
+
+.login-section{
+    padding:70px 20px;
+}
+
+.login-container{
+    max-width:550px;
+    margin:auto;
+    background:#fff;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.login-container h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.login-container p{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.remember-forgot{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.remember-forgot a{
+    color:#2563eb;
+}
+
+/* ==========================================
+   COMMON FORM STYLING
+========================================== */
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    outline:none;
+    transition:0.3s;
+    font-size:14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 8px rgba(37,99,235,0.2);
+}
+
+textarea{
+    resize:vertical;
+}
+
+.checkbox-group{
+    margin-bottom:20px;
+}
+
+.checkbox-group a{
+    color:#2563eb;
+}
+
+.redirect-link{
+    text-align:center;
+    margin-top:20px;
+}
+
+.redirect-link a{
+    color:#2563eb;
+    font-weight:600;
+}
+
+/* ==========================================
+   BENEFITS SECTION
+========================================== */
+
+.vendor-benefits{
+    padding:70px 8%;
+}
+
+.vendor-benefits h2{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.benefits-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.benefit-card{
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.benefit-card h3{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+    background:#1e293b;
+    color:white;
+    padding:60px 8% 20px;
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+.footer-section h3{
+    margin-bottom:20px;
+}
+
+.footer-section a{
+    display:block;
+    color:#cbd5e1;
+    margin-bottom:10px;
+    transition:0.3s;
+}
+
+.footer-section a:hover{
+    color:#60a5fa;
+}
+
+.footer-section p{
+    margin-bottom:10px;
+    color:#cbd5e1;
+}
+
+.copyright{
+    margin-top:40px;
+    padding-top:20px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.1);
+    color:#cbd5e1;
+}
+/* ==========================================
+   VENDOR PANEL LAYOUT
+========================================== */
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:260px;
+    height:100vh;
+    background:#1e293b;
+    overflow-y:auto;
+    z-index:1000;
+}
+
+.sidebar-logo{
+    padding:25px;
+    text-align:center;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-logo h2{
+    color:#ffffff;
+    font-size:28px;
+    font-weight:700;
+}
+
+.sidebar-menu{
+    padding:20px 0;
+}
+
+.sidebar-menu li{
+    margin:5px 0;
+}
+
+.sidebar-menu li a{
+    display:block;
+    padding:14px 25px;
+    color:#cbd5e1;
+    transition:0.3s;
+    font-weight:500;
+}
+
+.sidebar-menu li a:hover{
+    background:#2563eb;
+    color:#ffffff;
+    padding-left:35px;
+}
+
+.main-content,
+.dashboard-content,
+.profile-content{
+    margin-left:260px;
+    padding:30px;
+    min-height:100vh;
+}
+
+/* ==========================================
+   PAGE HEADER
+========================================== */
+
+.page-header{
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.page-header h1{
+    color:#1e293b;
+    margin-bottom:8px;
+}
+
+.page-header p{
+    color:#64748b;
+}
+
+/* ==========================================
+   DASHBOARD HEADER
+========================================== */
+
+.dashboard-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.dashboard-header h1{
+    margin-bottom:5px;
+}
+
+.dashboard-header p{
+    color:#64748b;
+}
+
+.vendor-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.vendor-info img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.vendor-info span{
+    font-weight:600;
+}
+
+/* ==========================================
+   DASHBOARD STATS
+========================================== */
+
+.dashboard-stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.dashboard-stats .stat-card{
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.dashboard-stats .stat-card:hover{
+    transform:translateY(-5px);
+}
+
+.dashboard-stats .stat-card h2{
+    color:#2563eb;
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.dashboard-stats .stat-card p{
+    color:#64748b;
+}
+
+/* ==========================================
+   QUICK ACTIONS
+========================================== */
+
+.quick-actions{
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:30px;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.quick-actions h2{
+    margin-bottom:20px;
+}
+
+.action-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+/* ==========================================
+   COMMON TABLE SECTION
+========================================== */
+
+.recent-orders,
+.recent-products,
+.orders-table,
+.product-table-section,
+.earnings-history{
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:30px;
+    overflow-x:auto;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.recent-orders h2,
+.recent-products h2,
+.earnings-history h2{
+    margin-bottom:20px;
+}
+
+table{
+    width:100%;
+    min-width:800px;
+}
+
+table thead{
+    background:#f1f5f9;
+}
+
+table th{
+    padding:15px;
+    text-align:left;
+    color:#1e293b;
+    font-weight:600;
+}
+
+table td{
+    padding:15px;
+    border-top:1px solid #e2e8f0;
+}
+
+table tr:hover{
+    background:#f8fafc;
+}
+
+/* ==========================================
+   PRODUCT FILTERS
+========================================== */
+
+.product-filters{
+    background:#ffffff;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.product-filters form{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.product-filters input,
+.product-filters select{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    min-width:180px;
+}
+
+/* ==========================================
+   NOTIFICATIONS
+========================================== */
+
+.notifications{
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:30px;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.notifications h2{
+    margin-bottom:20px;
+}
+
+.notifications ul{
+    list-style:disc;
+    padding-left:25px;
+}
+
+.notifications li{
+    margin-bottom:12px;
+    color:#475569;
+}
+
+/* ==========================================
+   PROFILE PAGE
+========================================== */
+
+.profile-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.profile-card{
+    background:#ffffff;
+    padding:30px;
+    border-radius:15px;
+    display:flex;
+    gap:30px;
+    align-items:center;
+    margin-bottom:30px;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.profile-image img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.profile-details h2{
+    margin-bottom:15px;
+}
+
+.profile-details p{
+    margin-bottom:10px;
+}
+
+/* ==========================================
+   PROFILE INFORMATION SECTIONS
+========================================== */
+
+.shop-information,
+.shop-description,
+.social-links,
+.bank-details,
+.shop-stats{
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:30px;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.shop-information h2,
+.shop-description h2,
+.social-links h2,
+.bank-details h2,
+.shop-stats h2{
+    margin-bottom:20px;
+}
+
+.social-links ul{
+    padding-left:20px;
+}
+
+.social-links li{
+    margin-bottom:10px;
+}
+
+.social-links a{
+    color:#2563eb;
+    font-weight:500;
+}
+
+.shop-description p{
+    line-height:1.8;
+}
+
+/* ==========================================
+   PROFILE STATISTICS
+========================================== */
+
+.stats-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat-box{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.stat-box h3{
+    color:#2563eb;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+/* ==========================================
+   SUMMARY CARDS
+========================================== */
+
+.summary-cards,
+.order-summary,
+.earnings-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.summary-card{
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.summary-card:hover{
+    transform:translateY(-5px);
+}
+
+.summary-card h2,
+.summary-card h3{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+/* ==========================================
+   STATUS COLORS
+========================================== */
+
+.status-active{
+    color:#22c55e;
+    font-weight:600;
+}
+
+.status-pending{
+    color:#f59e0b;
+    font-weight:600;
+}
+
+.status-processing{
+    color:#3b82f6;
+    font-weight:600;
+}
+
+.status-delivered{
+    color:#22c55e;
+    font-weight:600;
+}
+
+.status-cancelled{
+    color:#ef4444;
+    font-weight:600;
+}
+
+.status-draft{
+    color:#64748b;
+    font-weight:600;
+}
+
+.status-stockout{
+    color:#ef4444;
+    font-weight:600;
+}
+/* ==========================================
+   FORM SECTIONS
+========================================== */
+
+.form-section{
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.form-section h2{
+    margin-bottom:20px;
+    color:#1e293b;
+    border-bottom:2px solid #e2e8f0;
+    padding-bottom:10px;
+}
+
+.form-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
+
+/* ==========================================
+   PRODUCT IMAGE PREVIEW
+========================================== */
+
+.product-table-section img,
+.form-section img{
+    border-radius:10px;
+    border:1px solid #e2e8f0;
+    object-fit:cover;
+}
+
+/* ==========================================
+   PRODUCT TABLE ACTION BUTTONS
+========================================== */
+
+.product-table-section .btn,
+.orders-table .btn{
+    padding:8px 14px;
+    font-size:13px;
+    margin-right:5px;
+}
+
+/* ==========================================
+   ORDERS PAGE
+========================================== */
+
+.orders-table select{
+    padding:8px 10px;
+    border:1px solid #cbd5e1;
+    border-radius:6px;
+    outline:none;
+    background:#ffffff;
+}
+
+.orders-table select:focus{
+    border-color:#2563eb;
+}
+
+/* ==========================================
+   EARNINGS PAGE
+========================================== */
+
+.analytics-section{
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:30px;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.analytics-section h2{
+    margin-bottom:15px;
+}
+
+.analytics-section p{
+    color:#64748b;
+    margin-bottom:20px;
+}
+
+.analytics-placeholder{
+    height:350px;
+    border:2px dashed #cbd5e1;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    color:#64748b;
+    background:#f8fafc;
+}
+
+/* ==========================================
+   PAGE TRANSITIONS
+========================================== */
+
+.page-header,
+.profile-card,
+.shop-information,
+.shop-description,
+.social-links,
+.bank-details,
+.shop-stats,
+.form-section,
+.quick-actions,
+.notifications,
+.analytics-section,
+.summary-card,
+.stat-card{
+    animation:fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================================
+   HOVER EFFECTS
+========================================== */
+
+.profile-card:hover,
+.form-section:hover,
+.analytics-section:hover,
+.notifications:hover,
+.quick-actions:hover{
+    transition:0.3s;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+table tbody tr{
+    transition:0.3s;
+}
+
+table tbody tr:hover{
+    background:#eff6ff;
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f1f5f9;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#1d4ed8;
+}
+
+/* ==========================================
+   BADGES
+========================================== */
+
+.badge{
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.badge-success{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.badge-warning{
+    background:#fef3c7;
+    color:#b45309;
+}
+
+.badge-danger{
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+.badge-info{
+    background:#dbeafe;
+    color:#1d4ed8;
+}
+
+/* ==========================================
+   ALERT BOXES
+========================================== */
+
+.alert{
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.alert-success{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.alert-danger{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.alert-warning{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.alert-info{
+    background:#dbeafe;
+    color:#1e40af;
+}
+
+/* ==========================================
+   CARD UTILITIES
+========================================== */
+
+.card{
+    background:#ffffff;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.card-title{
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+/* ==========================================
+   FLEX UTILITIES
+========================================== */
+
+.d-flex{
+    display:flex;
+}
+
+.justify-between{
+    justify-content:space-between;
+}
+
+.justify-center{
+    justify-content:center;
+}
+
+.align-center{
+    align-items:center;
+}
+
+.flex-wrap{
+    flex-wrap:wrap;
+}
+
+.gap-10{
+    gap:10px;
+}
+
+.gap-20{
+    gap:20px;
+}
+
+/* ==========================================
+   MARGIN UTILITIES
+========================================== */
+
+.mt-10{ margin-top:10px; }
+.mt-20{ margin-top:20px; }
+.mt-30{ margin-top:30px; }
+
+.mb-10{ margin-bottom:10px; }
+.mb-20{ margin-bottom:20px; }
+.mb-30{ margin-bottom:30px; }
+
+/* ==========================================
+   TEXT UTILITIES
+========================================== */
+
+.text-center{
+    text-align:center;
+}
+
+.text-left{
+    text-align:left;
+}
+
+.text-right{
+    text-align:right;
+}
+
+.text-primary{
+    color:#2563eb;
+}
+
+.text-success{
+    color:#22c55e;
+}
+
+.text-danger{
+    color:#ef4444;
+}
+
+.text-muted{
+    color:#64748b;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media(max-width:1200px){
+
+    .dashboard-stats,
+    .summary-cards,
+    .earnings-cards,
+    .order-summary,
+    .stats-container{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:992px){
+
+    .sidebar{
+        width:220px;
+    }
+
+    .main-content,
+    .dashboard-content,
+    .profile-content{
+        margin-left:220px;
+    }
+
+    .profile-card{
+        flex-direction:column;
+        text-align:center;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+    }
+
+    .main-content,
+    .dashboard-content,
+    .profile-content{
+        margin-left:0;
+        padding:20px;
+    }
+
+    .dashboard-header,
+    .profile-header{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+    }
+
+    .dashboard-stats,
+    .summary-cards,
+    .earnings-cards,
+    .order-summary,
+    .stats-container{
+        grid-template-columns:1fr;
+    }
+
+    .action-buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .product-filters form{
+        flex-direction:column;
+    }
+
+    .product-filters input,
+    .product-filters select{
+        width:100%;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .page-header h1,
+    .dashboard-header h1{
+        font-size:24px;
+    }
+
+    .summary-card h2,
+    .stat-card h2{
+        font-size:26px;
+    }
+
+    .profile-image img{
+        width:140px;
+        height:140px;
+    }
+
+}

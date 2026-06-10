@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnings | ShopSphere</title>
+
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+</head>
+<body>
+
+<aside class="sidebar">
+
+    <div class="sidebar-logo">
+        <h2>ShopSphere</h2>
+    </div>
+
+    <ul class="sidebar-menu">
+
+        <li><a href="#">Dashboard</a></li>
+
+        <li><a href="#">My Profile</a></li>
+
+        <li><a href="#">Add Product</a></li>
+
+        <li><a href="#">Manage Products</a></li>
+
+        <li><a href="#">Earnings</a></li>
+
+        <li><a href="#">Logout</a></li>
+
+    </ul>
+
+</aside>
+
+<main class="main-content">
+
+    <div class="page-header">
+
+        <h1>Earnings & Revenue</h1>
+
+        <p>
+            Track your income and payouts.
+        </p>
+
+    </div>
+
+    <!-- Stats -->
+
+    <section class="earnings-cards">
+
+        <div class="summary-card">
+
+            <h2>₹45,000</h2>
+
+            <p>Total Revenue</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h2>₹8,500</h2>
+
+            <p>This Month</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h2>₹3,200</h2>
+
+            <p>Pending Payout</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h2>₹41,800</h2>
+
+            <p>Received Payout</p>
+
+        </div>
+
+    </section>
+
+    <!-- Earnings History -->
+
+    <section class="earnings-history">
+
+        <h2>Payout History</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Date</th>
+
+                    <th>Amount</th>
+
+                    <th>Method</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>01 June 2026</td>
+
+                    <td>₹5,000</td>
+
+                    <td>Bank Transfer</td>
+
+                    <td>Completed</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>15 May 2026</td>
+
+                    <td>₹7,500</td>
+
+                    <td>Bank Transfer</td>
+
+                    <td>Completed</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>01 May 2026</td>
+
+                    <td>₹4,200</td>
+
+                    <td>UPI</td>
+
+                    <td>Completed</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- Revenue Analytics -->
+
+    <section class="analytics-section">
+
+        <h2>Revenue Analytics</h2>
+
+        <p>
+            Monthly earnings and sales reports will appear here.
+        </p>
+
+        <div class="analytics-placeholder">
+
+            Revenue Graph Area
+
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>

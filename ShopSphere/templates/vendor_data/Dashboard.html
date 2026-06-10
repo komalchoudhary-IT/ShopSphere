@@ -1,0 +1,329 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Dashboard | ShopSphere</title>
+
+<link rel="stylesheet" href="{% static 'css/vendor.css' %}"></head>
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <h2>ShopSphere</h2>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li><a href="#">Dashboard</a></li>
+
+            <li><a href="#">My Profile</a></li>
+
+            <li><a href="#">Add Product</a></li>
+
+            <li><a href="#">Manage Products</a></li>
+
+            <li><a href="#">Orders</a></li>
+
+            <li><a href="#">Earnings</a></li>
+
+            <li><a href="#">Settings</a></li>
+
+            <li><a href="#">Logout</a></li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="dashboard-content">
+
+        <!-- Top Bar -->
+
+        <header class="dashboard-header">
+
+            <div>
+                <h1>Vendor Dashboard</h1>
+                <p>Welcome back, Akshit Store</p>
+            </div>
+
+            <div class="vendor-info">
+
+                <img
+                    src="{% static 'images/vendor.png' %}"
+                    alt="Vendor"
+                >
+
+                <span>Akshit Store</span>
+
+            </div>
+
+        </header>
+
+        <!-- Statistics -->
+
+        <section class="dashboard-stats">
+
+            <div class="stat-card">
+
+                <h2>120</h2>
+
+                <p>Total Products</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2>85</h2>
+
+                <p>Total Orders</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2>15</h2>
+
+                <p>Pending Orders</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2>70</h2>
+
+                <p>Completed Orders</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2>₹45,000</h2>
+
+                <p>Total Revenue</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2>₹9,000</h2>
+
+                <p>This Month Profit</p>
+
+            </div>
+
+        </section>
+
+        <!-- Quick Actions -->
+
+        <section class="quick-actions">
+
+            <h2>Quick Actions</h2>
+
+            <div class="action-buttons">
+
+                <a href="#" class="btn">
+                    Add Product
+                </a>
+
+                <a href="#" class="btn">
+                    View Orders
+                </a>
+
+                <a href="#" class="btn">
+                    Manage Products
+                </a>
+
+                <a href="#" class="btn">
+                    View Earnings
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Recent Orders -->
+
+        <section class="recent-orders">
+
+            <h2>Recent Orders</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Order ID</th>
+
+                        <th>Customer</th>
+
+                        <th>Product</th>
+
+                        <th>Amount</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>#1001</td>
+
+                        <td>Rahul Sharma</td>
+
+                        <td>Wireless Mouse</td>
+
+                        <td>₹799</td>
+
+                        <td>Delivered</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>#1002</td>
+
+                        <td>Aman Gupta</td>
+
+                        <td>Gaming Keyboard</td>
+
+                        <td>₹1,999</td>
+
+                        <td>Pending</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>#1003</td>
+
+                        <td>Priya Singh</td>
+
+                        <td>Bluetooth Speaker</td>
+
+                        <td>₹1,299</td>
+
+                        <td>Shipped</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- Recent Products -->
+
+        <section class="recent-products">
+
+            <h2>Latest Products</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Product ID</th>
+
+                        <th>Product Name</th>
+
+                        <th>Category</th>
+
+                        <th>Price</th>
+
+                        <th>Stock</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>P101</td>
+
+                        <td>Wireless Mouse</td>
+
+                        <td>Electronics</td>
+
+                        <td>₹799</td>
+
+                        <td>120</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>P102</td>
+
+                        <td>Gaming Keyboard</td>
+
+                        <td>Electronics</td>
+
+                        <td>₹1,999</td>
+
+                        <td>65</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>P103</td>
+
+                        <td>Bluetooth Speaker</td>
+
+                        <td>Electronics</td>
+
+                        <td>₹1,299</td>
+
+                        <td>90</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- Notifications -->
+
+        <section class="notifications">
+
+            <h2>Notifications</h2>
+
+            <ul>
+
+                <li>
+                    New order received (#1004)
+                </li>
+
+                <li>
+                    Product "Smart Watch" stock is running low.
+                </li>
+
+                <li>
+                    ₹12,000 payout successfully processed.
+                </li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

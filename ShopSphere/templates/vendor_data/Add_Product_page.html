@@ -1,0 +1,338 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product | ShopSphere</title>
+
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+</head>
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <h2>ShopSphere</h2>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li><a href="#">Dashboard</a></li>
+
+            <li><a href="#">My Profile</a></li>
+
+            <li><a href="#">Add Product</a></li>
+
+            <li><a href="#">Manage Products</a></li>
+
+            <li><a href="#">Earnings</a></li>
+
+            <li><a href="#">Logout</a></li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <div class="page-header">
+
+            <h1>Add New Product</h1>
+
+            <p>
+                Fill in the product details to list your product on ShopSphere.
+            </p>
+
+        </div>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <!-- Basic Information -->
+
+            <section class="form-section">
+
+                <h2>Basic Information</h2>
+
+                <div class="form-group">
+
+                    <label>Product Name</label>
+
+                    <input
+                        type="text"
+                        name="product_name"
+                        placeholder="Enter Product Name"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Category</label>
+
+                    <select name="category" required>
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option>Electronics</option>
+                        <option>Fashion</option>
+                        <option>Books</option>
+                        <option>Home & Kitchen</option>
+                        <option>Sports</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Brand</label>
+
+                    <input
+                        type="text"
+                        name="brand"
+                        placeholder="Enter Brand Name"
+                    >
+
+                </div>
+
+            </section>
+
+            <!-- Pricing -->
+
+            <section class="form-section">
+
+                <h2>Pricing & Inventory</h2>
+
+                <div class="form-group">
+
+                    <label>Original Price (₹)</label>
+
+                    <input
+                        type="number"
+                        name="price"
+                        min="0"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Discount Price (₹)</label>
+
+                    <input
+                        type="number"
+                        name="discount_price"
+                        min="0"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Stock Quantity</label>
+
+                    <input
+                        type="number"
+                        name="stock"
+                        min="0"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>SKU</label>
+
+                    <input
+                        type="text"
+                        name="sku"
+                        placeholder="Unique Product Code"
+                    >
+
+                </div>
+
+            </section>
+
+            <!-- Product Images -->
+
+            <section class="form-section">
+
+                <h2>Product Images</h2>
+
+                <div class="form-group">
+
+                    <label>Main Product Image</label>
+
+                    <input
+                        type="file"
+                        name="main_image"
+                        accept="image/*"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Additional Images</label>
+
+                    <input
+                        type="file"
+                        name="gallery_images"
+                        multiple
+                        accept="image/*"
+                    >
+
+                </div>
+
+            </section>
+
+            <!-- Description -->
+
+            <section class="form-section">
+
+                <h2>Description</h2>
+
+                <div class="form-group">
+
+                    <label>Short Description</label>
+
+                    <textarea
+                        name="short_description"
+                        rows="4"
+                        placeholder="Brief description of the product"
+                    ></textarea>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Detailed Description</label>
+
+                    <textarea
+                        name="description"
+                        rows="8"
+                        placeholder="Complete product details"
+                    ></textarea>
+
+                </div>
+
+            </section>
+
+            <!-- Specifications -->
+
+            <section class="form-section">
+
+                <h2>Specifications</h2>
+
+                <div class="form-group">
+
+                    <label>Specifications</label>
+
+                    <textarea
+                        name="specifications"
+                        rows="8"
+                        placeholder="Example:
+                        Color: Black
+                        Weight: 500g
+                        Material: Plastic"
+                    ></textarea>
+
+                </div>
+
+            </section>
+
+            <!-- Shipping -->
+
+            <section class="form-section">
+
+                <h2>Shipping Details</h2>
+
+                <div class="form-group">
+
+                    <label>Weight (kg)</label>
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        name="weight"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Estimated Delivery Time</label>
+
+                    <input
+                        type="text"
+                        name="delivery_time"
+                        placeholder="e.g. 3-5 Days"
+                    >
+
+                </div>
+
+            </section>
+
+            <!-- Product Status -->
+
+            <section class="form-section">
+
+                <h2>Product Status</h2>
+
+                <div class="form-group">
+
+                    <label>Status</label>
+
+                    <select name="status">
+
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="inactive">
+                            Inactive
+                        </option>
+
+                        <option value="draft">
+                            Draft
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+            <!-- Buttons -->
+
+            <div class="form-buttons">
+
+                <button type="submit" class="btn">
+                    Add Product
+                </button>
+
+                <button type="reset" class="btn">
+                    Reset
+                </button>
+
+            </div>
+
+        </form>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,306 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Orders | ShopSphere</title>
+
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+</head>
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <h2>ShopSphere</h2>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">Add Product</a></li>
+            <li><a href="#">Manage Products</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Earnings</a></li>
+            <li><a href="#">Logout</a></li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <div class="page-header">
+
+            <h1>Vendor Orders</h1>
+
+            <p>
+                View and manage orders received for your products.
+            </p>
+
+        </div>
+
+        <!-- Order Summary -->
+
+        <section class="order-summary">
+
+            <div class="summary-card">
+                <h2>120</h2>
+                <p>Total Orders</p>
+            </div>
+
+            <div class="summary-card">
+                <h2>25</h2>
+                <p>Pending</p>
+            </div>
+
+            <div class="summary-card">
+                <h2>15</h2>
+                <p>Processing</p>
+            </div>
+
+            <div class="summary-card">
+                <h2>80</h2>
+                <p>Delivered</p>
+            </div>
+
+        </section>
+
+        <!-- Filters -->
+
+        <section class="product-filters">
+
+            <form action="" method="GET">
+
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Search Order ID..."
+                >
+
+                <select name="status">
+
+                    <option value="">
+                        All Status
+                    </option>
+
+                    <option>
+                        Pending
+                    </option>
+
+                    <option>
+                        Processing
+                    </option>
+
+                    <option>
+                        Shipped
+                    </option>
+
+                    <option>
+                        Delivered
+                    </option>
+
+                    <option>
+                        Cancelled
+                    </option>
+
+                </select>
+
+                <button type="submit" class="btn">
+                    Search
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- Orders Table -->
+
+        <section class="orders-table">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Order ID</th>
+
+                        <th>Customer</th>
+
+                        <th>Product</th>
+
+                        <th>Quantity</th>
+
+                        <th>Amount</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>#ORD101</td>
+
+                        <td>Rahul Sharma</td>
+
+                        <td>Wireless Mouse</td>
+
+                        <td>2</td>
+
+                        <td>₹1,598</td>
+
+                        <td>Pending</td>
+
+                        <td>
+
+                            <select>
+
+                                <option selected>
+                                    Pending
+                                </option>
+
+                                <option>
+                                    Processing
+                                </option>
+
+                                <option>
+                                    Shipped
+                                </option>
+
+                                <option>
+                                    Delivered
+                                </option>
+
+                            </select>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>#ORD102</td>
+
+                        <td>Priya Singh</td>
+
+                        <td>Gaming Keyboard</td>
+
+                        <td>1</td>
+
+                        <td>₹1,999</td>
+
+                        <td>Processing</td>
+
+                        <td>
+
+                            <select>
+
+                                <option>
+                                    Pending
+                                </option>
+
+                                <option selected>
+                                    Processing
+                                </option>
+
+                                <option>
+                                    Shipped
+                                </option>
+
+                                <option>
+                                    Delivered
+                                </option>
+
+                            </select>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>#ORD103</td>
+
+                        <td>Aman Gupta</td>
+
+                        <td>Bluetooth Speaker</td>
+
+                        <td>1</td>
+
+                        <td>₹1,299</td>
+
+                        <td>Delivered</td>
+
+                        <td>
+
+                            <select>
+
+                                <option>
+                                    Pending
+                                </option>
+
+                                <option>
+                                    Processing
+                                </option>
+
+                                <option>
+                                    Shipped
+                                </option>
+
+                                <option selected>
+                                    Delivered
+                                </option>
+
+                            </select>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- Recent Activity -->
+
+        <section class="notifications">
+
+            <h2>Recent Order Activity</h2>
+
+            <ul>
+
+                <li>
+                    New order #ORD104 received.
+                </li>
+
+                <li>
+                    Order #ORD099 marked as Delivered.
+                </li>
+
+                <li>
+                    Order #ORD095 shipment dispatched.
+                </li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

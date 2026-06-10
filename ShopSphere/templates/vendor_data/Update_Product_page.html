@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product | ShopSphere</title>
+
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+</head>
+<body>
+
+<aside class="sidebar">
+
+    <div class="sidebar-logo">
+        <h2>ShopSphere</h2>
+    </div>
+
+    <ul class="sidebar-menu">
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">My Profile</a></li>
+        <li><a href="#">Add Product</a></li>
+        <li><a href="#">Manage Products</a></li>
+        <li><a href="#">Earnings</a></li>
+        <li><a href="#">Logout</a></li>
+    </ul>
+
+</aside>
+
+<main class="main-content">
+
+    <div class="page-header">
+
+        <h1>Update Product</h1>
+
+        <p>
+            Edit and update your product details.
+        </p>
+
+    </div>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <div class="form-section">
+
+            <h2>Basic Information</h2>
+
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text"
+                       value="Wireless Mouse"
+                       name="product_name">
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+
+                <select name="category">
+
+                    <option selected>
+                        Electronics
+                    </option>
+
+                    <option>
+                        Fashion
+                    </option>
+
+                    <option>
+                        Books
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Brand</label>
+
+                <input type="text"
+                       value="Logitech"
+                       name="brand">
+
+            </div>
+
+        </div>
+
+        <div class="form-section">
+
+            <h2>Pricing</h2>
+
+            <div class="form-group">
+
+                <label>Price</label>
+
+                <input type="number"
+                       value="799"
+                       name="price">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Discount Price</label>
+
+                <input type="number"
+                       value="699"
+                       name="discount_price">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Stock</label>
+
+                <input type="number"
+                       value="120"
+                       name="stock">
+
+            </div>
+
+        </div>
+
+        <div class="form-section">
+
+            <h2>Description</h2>
+
+            <div class="form-group">
+
+                <textarea rows="6"
+                          name="description">
+Premium wireless mouse with ergonomic design.
+                </textarea>
+
+            </div>
+
+        </div>
+
+        <div class="form-section">
+
+            <h2>Product Image</h2>
+
+            <div class="form-group">
+
+                <img
+                    src="{% static 'images/product1.jpg' %}"
+                    alt="Product"
+                    width="150"
+                >
+
+                <br><br>
+
+                <input type="file"
+                       name="product_image">
+
+            </div>
+
+        </div>
+
+        <div class="form-buttons">
+
+            <button type="submit" class="btn">
+                Update Product
+            </button>
+
+        </div>
+
+    </form>
+
+</main>
+
+</body>
+</html>

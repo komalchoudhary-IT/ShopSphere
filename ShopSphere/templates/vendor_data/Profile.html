@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Profile | ShopSphere</title>
+
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+</head>
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <h2>ShopSphere</h2>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li><a href="#">Dashboard</a></li>
+
+            <li><a href="#">My Profile</a></li>
+
+            <li><a href="#">Add Product</a></li>
+
+            <li><a href="#">Manage Products</a></li>
+
+            <li><a href="#">Earnings</a></li>
+
+            <li><a href="#">Logout</a></li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="profile-content">
+
+        <div class="profile-header">
+
+            <h1>Vendor Profile</h1>
+
+            <button class="btn">
+                Edit Profile
+            </button>
+
+        </div>
+
+        <!-- Profile Card -->
+
+        <section class="profile-card">
+
+            <div class="profile-image">
+
+                <img
+                    src="{% static 'images/vendor-profile.jpg' %}"
+                    alt="Vendor Profile"
+                >
+
+            </div>
+
+            <div class="profile-details">
+
+                <h2>Akshit Agarwal</h2>
+
+                <p><strong>Shop Name:</strong> Akshit Electronics</p>
+
+                <p><strong>Email:</strong> akshit@example.com</p>
+
+                <p><strong>Phone:</strong> +91 9876543210</p>
+
+                <p><strong>GST Number:</strong> 08ABCDE1234F1Z5</p>
+
+                <p><strong>Status:</strong> Approved Vendor</p>
+
+            </div>
+
+        </section>
+
+        <!-- Shop Information -->
+
+        <section class="shop-information">
+
+            <h2>Shop Information</h2>
+
+            <table>
+
+                <tr>
+                    <th>Shop Name</th>
+                    <td>Akshit Electronics</td>
+                </tr>
+
+                <tr>
+                    <th>Business Type</th>
+                    <td>Electronics & Accessories</td>
+                </tr>
+
+                <tr>
+                    <th>Shop Address</th>
+                    <td>
+                        123, Main Market Road,
+                        Jaipur, Rajasthan,
+                        India
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>Pincode</th>
+                    <td>302001</td>
+                </tr>
+
+                <tr>
+                    <th>GST Number</th>
+                    <td>08ABCDE1234F1Z5</td>
+                </tr>
+
+                <tr>
+                    <th>Registration Date</th>
+                    <td>10 June 2026</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Shop Description -->
+
+        <section class="shop-description">
+
+            <h2>About Shop</h2>
+
+            <p>
+                Akshit Electronics specializes in electronic gadgets,
+                accessories, computer peripherals, speakers, keyboards,
+                wireless devices and various technology products.
+                We focus on quality products, customer satisfaction
+                and competitive pricing.
+            </p>
+
+        </section>
+
+        <!-- Social Media -->
+
+        <section class="social-links">
+
+            <h2>Social Media</h2>
+
+            <ul>
+
+                <li>
+                    <a href="https://facebook.com" target="_blank">
+                        Facebook
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://instagram.com" target="_blank">
+                        Instagram
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://linkedin.com" target="_blank">
+                        LinkedIn
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://twitter.com" target="_blank">
+                        Twitter / X
+                    </a>
+                </li>
+
+            </ul>
+
+        </section>
+
+        <!-- Bank Details -->
+
+        <section class="bank-details">
+
+            <h2>Payment Information</h2>
+
+            <table>
+
+                <tr>
+                    <th>Account Holder</th>
+                    <td>Akshit Agarwal</td>
+                </tr>
+
+                <tr>
+                    <th>Bank Name</th>
+                    <td>State Bank of India</td>
+                </tr>
+
+                <tr>
+                    <th>Account Number</th>
+                    <td>XXXXXXXXXXXX1234</td>
+                </tr>
+
+                <tr>
+                    <th>IFSC Code</th>
+                    <td>SBIN0001234</td>
+                </tr>
+
+                <tr>
+                    <th>UPI ID</th>
+                    <td>akshit@upi</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Shop Statistics -->
+
+        <section class="shop-stats">
+
+            <h2>Shop Statistics</h2>
+
+            <div class="stats-container">
+
+                <div class="stat-box">
+                    <h3>120</h3>
+                    <p>Total Products</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>15</h3>
+                    <p>Categories</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>₹45,000</h3>
+                    <p>Total Revenue</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>4.8/5</h3>
+                    <p>Vendor Rating</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

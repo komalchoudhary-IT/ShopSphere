@@ -1,0 +1,334 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products | ShopSphere</title>
+
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+</head>
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <h2>ShopSphere</h2>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li><a href="#">Dashboard</a></li>
+
+            <li><a href="#">My Profile</a></li>
+
+            <li><a href="#">Add Product</a></li>
+
+            <li><a href="#">Manage Products</a></li>
+
+            <li><a href="#">Earnings</a></li>
+
+            <li><a href="#">Logout</a></li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Page Header -->
+
+        <div class="page-header">
+
+            <h1>Manage Products</h1>
+
+            <p>
+                View, update and manage all your listed products.
+            </p>
+
+        </div>
+
+        <!-- Search & Filter -->
+
+        <section class="product-filters">
+
+            <form action="" method="GET">
+
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Search Product..."
+                >
+
+                <select name="category">
+
+                    <option value="">
+                        All Categories
+                    </option>
+
+                    <option value="electronics">
+                        Electronics
+                    </option>
+
+                    <option value="fashion">
+                        Fashion
+                    </option>
+
+                    <option value="books">
+                        Books
+                    </option>
+
+                    <option value="home">
+                        Home & Kitchen
+                    </option>
+
+                </select>
+
+                <select name="status">
+
+                    <option value="">
+                        All Status
+                    </option>
+
+                    <option value="active">
+                        Active
+                    </option>
+
+                    <option value="inactive">
+                        Inactive
+                    </option>
+
+                    <option value="draft">
+                        Draft
+                    </option>
+
+                </select>
+
+                <button type="submit" class="btn">
+                    Filter
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- Product Table -->
+
+        <section class="product-table-section">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Image</th>
+
+                        <th>Product Name</th>
+
+                        <th>Category</th>
+
+                        <th>Price</th>
+
+                        <th>Stock</th>
+
+                        <th>Status</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <!-- Product 1 -->
+
+                    <tr>
+
+                        <td>
+                            <img
+                                src="{% static 'images/product1.jpg' %}"
+                                alt="Product"
+                                width="60"
+                            >
+                        </td>
+
+                        <td>Wireless Mouse</td>
+
+                        <td>Electronics</td>
+
+                        <td>₹799</td>
+
+                        <td>120</td>
+
+                        <td>Active</td>
+
+                        <td>
+
+                            <a href="#" class="btn">
+                                Edit
+                            </a>
+
+                            <a href="#" class="btn">
+                                Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    <!-- Product 2 -->
+
+                    <tr>
+
+                        <td>
+                            <img
+                                src="{% static 'images/product2.jpg' %}"
+                                alt="Product"
+                                width="60"
+                            >
+                        </td>
+
+                        <td>Gaming Keyboard</td>
+
+                        <td>Electronics</td>
+
+                        <td>₹1,999</td>
+
+                        <td>50</td>
+
+                        <td>Active</td>
+
+                        <td>
+
+                            <a href="#" class="btn">
+                                Edit
+                            </a>
+
+                            <a href="#" class="btn">
+                                Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    <!-- Product 3 -->
+
+                    <tr>
+
+                        <td>
+                            <img
+                                src="{% static 'images/product3.jpg' %}"
+                                alt="Product"
+                                width="60"
+                            >
+                        </td>
+
+                        <td>Bluetooth Speaker</td>
+
+                        <td>Electronics</td>
+
+                        <td>₹1,299</td>
+
+                        <td>0</td>
+
+                        <td>Out Of Stock</td>
+
+                        <td>
+
+                            <a href="#" class="btn">
+                                Edit
+                            </a>
+
+                            <a href="#" class="btn">
+                                Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    <!-- Product 4 -->
+
+                    <tr>
+
+                        <td>
+                            <img
+                                src="{% static 'images/product4.jpg' %}"
+                                alt="Product"
+                                width="60"
+                            >
+                        </td>
+
+                        <td>Smart Watch</td>
+
+                        <td>Electronics</td>
+
+                        <td>₹2,499</td>
+
+                        <td>35</td>
+
+                        <td>Draft</td>
+
+                        <td>
+
+                            <a href="#" class="btn">
+                                Edit
+                            </a>
+
+                            <a href="#" class="btn">
+                                Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- Product Summary -->
+
+        <section class="product-summary">
+
+            <h2>Inventory Summary</h2>
+
+            <div class="summary-cards">
+
+                <div class="summary-card">
+                    <h3>120</h3>
+                    <p>Total Products</p>
+                </div>
+
+                <div class="summary-card">
+                    <h3>95</h3>
+                    <p>Active Products</p>
+                </div>
+
+                <div class="summary-card">
+                    <h3>15</h3>
+                    <p>Draft Products</p>
+                </div>
+
+                <div class="summary-card">
+                    <h3>10</h3>
+                    <p>Out Of Stock</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
