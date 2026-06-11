@@ -1,0 +1,27 @@
+{ % csrf_token}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+   
+    <form method==POST><action=submit>
+   
+    <h3>Profile Page</h3>
+    
+ <h1>Welcome {{ request.user.first_name }}</h1>
+
+ <h3>Username: {{ request.user.username }}</h3>
+
+ <h3>Email: {{ request.user.email }}</h3>
+  
+   
+   {% comment %} <button type="submit">Logout</button><br><br> {% endcomment %}
+     <button><a href="/logout/">Logout</a></button>
+    </form>
+
+</body>
+</html>

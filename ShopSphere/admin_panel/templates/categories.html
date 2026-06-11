@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Categories</title>
+</head>
+<body>
+    <form method="POST">
+    {% csrf_token %}
+
+    <input type="text" name="name" placeholder="Enter Category Name">
+
+    <button type="submit">
+        Add Category
+    </button>
+</form>
+
+<hr>
+
+<h1>Manage Categories</h1>
+
+<a href="">Add Category</a>
+
+<hr>
+{% for category in categories %}
+
+<p>
+    {{ category.name }}
+
+    <a href="{% url 'delete_category' category.id %}"><br>
+    <button type = Delete>Delete</button>
+    </a>
+</p>
+
+{% endfor %}
+</body>
+</html>

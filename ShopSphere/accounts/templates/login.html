@@ -1,0 +1,25 @@
+{ % csrf_token}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+   
+    <form method==POST><action=submit>
+   
+    <h3>Login Page</h3>
+  
+   <input type="text" name="username" Placeholder="Username"><br><br>
+   <input type="password" name="password" Placeholder="Password"><br><br>
+   <button type="submit">Login</button><br><br>
+     <button><a href="{% url 'logout' %}">Logout</a><b/button>
+        {% if message %}
+         <p>{{ message }}</p>
+        {%endif%} 
+    </form>
+
+</body>
+</html>
