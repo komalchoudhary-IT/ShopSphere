@@ -65,15 +65,15 @@
 
             <div class="profile-details">
 
-                <h2>Akshit Agarwal</h2>
+                <h2>{{request.user.first_name}}</h2>
 
-                <p><strong>Shop Name:</strong> Akshit Electronics</p>
+                <p><strong>Shop Name:</strong> {{request.user.vendor.shop_name}}</p>
 
-                <p><strong>Email:</strong> akshit@example.com</p>
+                <p><strong>Email:</strong> {{request.user.email}}</p>
 
-                <p><strong>Phone:</strong> +91 9876543210</p>
+                <p><strong>Phone:</strong> {{request.user.vendor.phone}}</p>
 
-                <p><strong>GST Number:</strong> 08ABCDE1234F1Z5</p>
+                <p><strong>GST Number:</strong> {{request.user.vendor.gst_number}}</p>
 
                 <p><strong>Status:</strong> Approved Vendor</p>
 
@@ -134,11 +134,7 @@
             <h2>About Shop</h2>
 
             <p>
-                Akshit Electronics specializes in electronic gadgets,
-                accessories, computer peripherals, speakers, keyboards,
-                wireless devices and various technology products.
-                We focus on quality products, customer satisfaction
-                and competitive pricing.
+                {{request.user.vendor.shop_description}}
             </p>
 
         </section>
