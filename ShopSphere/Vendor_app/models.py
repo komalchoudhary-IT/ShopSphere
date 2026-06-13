@@ -26,7 +26,7 @@ class Vendor(models.Model):
     shop_logo = models.ImageField(
         upload_to='vendor_logos/',
         blank=True,
-        null=True
+        null=True,
     )
 
     is_approved = models.BooleanField(

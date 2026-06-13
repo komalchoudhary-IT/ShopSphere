@@ -36,7 +36,7 @@ def register(request):
             address=address,
             shop_logo=logo,
         )
-        return redirect("login_user")
+        return render(request,"Vendor_data/Login.html")
     
     elif request.user.is_authenticated:
         return redirect("profile")
@@ -45,7 +45,40 @@ def register(request):
     
  
 def login_user(request):
-    return render(request,'Vendor_data/Login.html')
+    if request.method== "POST":
+        login_value = request.POST.get("login_value")
+        password = request.POST.get("password")
+
+        try:
+
+            if "@" in login_value:
+
+                user_obj = User.objects.get(email=login_value)
+                username = user_obj.username
+
+            else:
+
+                username = login_value
+
+            user = authenticate(
+                request,
+                username=username,
+                password=password
+            )
+
+            if user is not None:
+
+                login(request, user)
+
+                return redirect("profile")
+
+        except User.DoesNotExist:
+
+            pass
+
+    return render(
+        request,
+        "Vendor_data/Login.html")
 
 
 def profile(request):
@@ -61,7 +94,7 @@ def profile(request):
         )
         if (user!= None):
             login(request,user)
-            return redirect("profile")
+            return render(request,'Vendor_data/Profile.html',{"user" : request.user})
         else:
             return render(request,'Vendor_data/Login.html',{"error" : "Invalid Credentials"})
     
@@ -89,3 +122,8 @@ def update_details(request):
     request.user.email=new_email
     request.user.save()
     return redirect("login_user")
+
+@login_required
+def logout_user(request):
+    logout(request)
+    return render(request,'Vendor_data/Login.html')

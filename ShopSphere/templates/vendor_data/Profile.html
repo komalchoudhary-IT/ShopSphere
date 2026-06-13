@@ -30,7 +30,7 @@
 
             <li><a href="#">Earnings</a></li>
 
-            <li><a href="#">Logout</a></li>
+            <li><a href="/logout/">Logout</a></li>
 
         </ul>
 
@@ -91,7 +91,7 @@
 
                 <tr>
                     <th>Shop Name</th>
-                    <td>Akshit Electronics</td>
+                    <td>{{request.user.vendor.shop_name}}</td>
                 </tr>
 
                 <tr>
@@ -102,25 +102,18 @@
                 <tr>
                     <th>Shop Address</th>
                     <td>
-                        123, Main Market Road,
-                        Jaipur, Rajasthan,
-                        India
+                        {{request.user.vendor.address}}
                     </td>
                 </tr>
 
                 <tr>
-                    <th>Pincode</th>
-                    <td>302001</td>
-                </tr>
-
-                <tr>
                     <th>GST Number</th>
-                    <td>08ABCDE1234F1Z5</td>
+                    <td>{{request.user.vendor.gst_number}}</td>
                 </tr>
 
                 <tr>
                     <th>Registration Date</th>
-                    <td>10 June 2026</td>
+                    <td>{{request.user.vendor.created_at}}</td>
                 </tr>
 
             </table>
