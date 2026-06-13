@@ -6,41 +6,47 @@ from .models import Vendor
 
 # Create your views here.
 def home(request):
-    return render(request,"Vendor_data/home.html")
+    return render(request,"Vendor_data/Vendor_home.html")
 
 def register(request):
-    fullname=request.POST.get("full_name")
-    username=request.POST.get("username")
-    email=request.POST.get("email")
-    password=request.POST.get("password")
-    phone=request.POST.get("phone")
-    shop_name=request.POST.get("shop_name")
-    shop_description=request.POST.get("description")
-    gst_number=request.POST.get("gst_number")
-    address=request.POST.get("address")
-    logo=request.FILES.get('vendor_logos/')
-    user = User.objects.create_user(
-        first_name=fullname,
-        username=username,
-        email=email,
-        password=password
-    )
+    if request.method == "POST":
+        fullname=request.POST.get("full_name")
+        username=request.POST.get("username")
+        email=request.POST.get("email")
+        password=request.POST.get("password")
+        phone=request.POST.get("phone")
+        shop_name=request.POST.get("shop_name")
+        shop_description=request.POST.get("description")
+        gst_number=request.POST.get("gst_number")
+        address=request.POST.get("address")
+        logo=request.FILES.get('vendor_logos/')
+        user = User.objects.create_user(
+            first_name=fullname,
+            username=username,
+            email=email,
+            password=password
+        )
 
-    Vendor.objects.create(
-        user=user,
-        phone=phone,
-        shop_name=shop_name,
-        shop_description=shop_description,
-        gst_number=gst_number,
-        address=address,
-        shop_logo=logo,
-    )
+        Vendor.objects.create(
+            user=user,
+            phone=phone,
+            shop_name=shop_name,
+            shop_description=shop_description,
+            gst_number=gst_number,
+            address=address,
+            shop_logo=logo,
+        )
+        return redirect("login_user")
+    
+    elif request.user.is_authenticated:
+        return redirect("profile")
     
     return render(request, 'Vendor_data/Register.html')
     
  
 def login_user(request):
     return render(request,'Vendor_data/Login.html')
+
 
 def profile(request):
     if request.method == "POST":
@@ -72,7 +78,7 @@ def profile(request):
 def dashboard(request):
     return render(request,'Vendor_data/Dashboard.html')
 
-
+@login_required
 def update_details(request):
     new_name=request.POST.get("fullname")
     new_username=request.POST.get("username")
