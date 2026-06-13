@@ -16,6 +16,7 @@ def register(request):
         password=request.POST.get("password")
         phone=request.POST.get("phone")
         shop_name=request.POST.get("shop_name")
+        business_type=request.POST.get("business_type")
         shop_description=request.POST.get("description")
         gst_number=request.POST.get("gst_number")
         address=request.POST.get("address")
@@ -31,6 +32,7 @@ def register(request):
             user=user,
             phone=phone,
             shop_name=shop_name,
+            business_type=business_type,
             shop_description=shop_description,
             gst_number=gst_number,
             address=address,

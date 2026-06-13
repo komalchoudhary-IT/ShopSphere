@@ -8,6 +8,11 @@ class Vendor(models.Model):
         User,
         on_delete=models.CASCADE
     )
+    
+    business_type=models.CharField(   
+        max_length=100,
+        blank=True,
+        null=True)
 
     shop_name = models.CharField(max_length=100)
     
