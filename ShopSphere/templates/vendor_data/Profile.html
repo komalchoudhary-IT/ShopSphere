@@ -55,12 +55,12 @@
         <section class="profile-card">
 
             <div class="profile-image">
-
+                {% if request.user.vendor.shop_logo %}
                 <img
-                    src="{% static 'images/vendor-profile.jpg' %}"
+                    src="{{request.user.vendor.shop_logo.url}}"
                     alt="Vendor Profile"
                 >
-
+                {% endif %}
             </div>
 
             <div class="profile-details">
