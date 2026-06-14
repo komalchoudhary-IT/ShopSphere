@@ -77,7 +77,10 @@ def login_user(request):
         except User.DoesNotExist:
 
             pass
-
+    
+    elif request.user.is_authenticated:
+        return redirect("profile")
+    
     return render(
         request,
         "Vendor_data/Login.html")
