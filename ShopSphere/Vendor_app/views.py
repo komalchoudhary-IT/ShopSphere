@@ -108,13 +108,13 @@ def profile(request):
     
     return render(request,'Vendor_data/Login.html')
 
-@login_required()
+@login_required(login_url='login_user')
 def profile(request):
     return render(request,'Vendor_data/Profile.html',{"user" : request.user})
 
-@login_required
+@login_required(login_url='login_user')
 def dashboard(request):
-    return render(request,'Vendor_data/Dashboard.html')
+    return render(request,'Vendor_data/Dashboard.html',{"user" : request.user})
 
 @login_required
 def update_details(request):
