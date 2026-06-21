@@ -146,149 +146,54 @@
 
                 <tbody>
 
-                    <!-- Product 1 -->
+                {% for product in products %}
 
-                    <tr>
+                <tr>
 
-                        <td>
-                            <img
-                                src="{% static 'images/product1.jpg' %}"
-                                alt="Product"
-                                width="60"
-                            >
-                        </td>
+                <td>
 
-                        <td>Wireless Mouse</td>
+                <img
+                src="{{ product.main_image.url }}"
+                width="60"
+                >
 
-                        <td>Electronics</td>
+                </td>
 
-                        <td>₹799</td>
+                <td>
+                {{ product.product_name }}
+                </td>
 
-                        <td>120</td>
+                <td>
+                {{ product.category }}
+                </td>
 
-                        <td>Active</td>
+                <td>
+                ₹{{ product.price }}
+                </td>
 
-                        <td>
+                <td>
+                {{ product.stock }}
+                </td>
 
-                            <a href="#" class="btn">
-                                Edit
-                            </a>
+                <td>
+                {{ product.status }}
+                </td>
 
-                            <a href="#" class="btn">
-                                Delete
-                            </a>
+                <td>
 
-                        </td>
+                <a href="#">
+                Edit
+                </a>
 
-                    </tr>
+                <a href="#">
+                Delete
+                </a>
 
-                    <!-- Product 2 -->
+                </td>
 
-                    <tr>
+                </tr>
 
-                        <td>
-                            <img
-                                src="{% static 'images/product2.jpg' %}"
-                                alt="Product"
-                                width="60"
-                            >
-                        </td>
-
-                        <td>Gaming Keyboard</td>
-
-                        <td>Electronics</td>
-
-                        <td>₹1,999</td>
-
-                        <td>50</td>
-
-                        <td>Active</td>
-
-                        <td>
-
-                            <a href="#" class="btn">
-                                Edit
-                            </a>
-
-                            <a href="#" class="btn">
-                                Delete
-                            </a>
-
-                        </td>
-
-                    </tr>
-
-                    <!-- Product 3 -->
-
-                    <tr>
-
-                        <td>
-                            <img
-                                src="{% static 'images/product3.jpg' %}"
-                                alt="Product"
-                                width="60"
-                            >
-                        </td>
-
-                        <td>Bluetooth Speaker</td>
-
-                        <td>Electronics</td>
-
-                        <td>₹1,299</td>
-
-                        <td>0</td>
-
-                        <td>Out Of Stock</td>
-
-                        <td>
-
-                            <a href="#" class="btn">
-                                Edit
-                            </a>
-
-                            <a href="#" class="btn">
-                                Delete
-                            </a>
-
-                        </td>
-
-                    </tr>
-
-                    <!-- Product 4 -->
-
-                    <tr>
-
-                        <td>
-                            <img
-                                src="{% static 'images/product4.jpg' %}"
-                                alt="Product"
-                                width="60"
-                            >
-                        </td>
-
-                        <td>Smart Watch</td>
-
-                        <td>Electronics</td>
-
-                        <td>₹2,499</td>
-
-                        <td>35</td>
-
-                        <td>Draft</td>
-
-                        <td>
-
-                            <a href="#" class="btn">
-                                Edit
-                            </a>
-
-                            <a href="#" class="btn">
-                                Delete
-                            </a>
-
-                        </td>
-
-                    </tr>
+                {% endfor %}
 
                 </tbody>
 

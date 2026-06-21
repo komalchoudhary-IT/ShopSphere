@@ -1,0 +1,205 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile | ShopSphere</title>
+
+```
+<link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+```
+
+</head>
+<body>
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+```
+<div class="sidebar-logo">
+    <h2>ShopSphere</h2>
+</div>
+
+<ul class="sidebar-menu">
+
+    <li>
+        <a href="{% url 'dashboard' %}">
+            Dashboard
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'profile' %}">
+            My Profile
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'add_products' %}">
+            Add Product
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'manage_products' %}">
+            Manage Products
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'orders' %}">
+            Orders
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'earnings' %}">
+            Earnings
+        </a>
+    </li>
+
+</ul>
+```
+
+</aside>
+
+<!-- Main Content -->
+
+<main class="main-content">
+
+<div class="page-header">
+
+    <h1>Update Vendor Profile</h1>
+
+    <p>
+        Update your shop information and business details.
+    </p>
+
+</div>
+
+<form method="POST"
+      enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <!-- Shop Information -->
+
+    <div class="form-section">
+
+        <h2>Shop Information</h2>
+
+        <div class="form-group">
+
+            <label>Shop Name</label>
+
+            <input type="text"
+                   name="shop_name"
+                   value="{{ vendor.shop_name }}"
+                   required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Phone Number</label>
+
+            <input type="text"
+                   name="phone"
+                   value="{{ vendor.phone }}"
+                   required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>GST Number</label>
+
+            <input type="text"
+                   name="gst_number"
+                   value="{{ vendor.gst_number }}">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Address</label>
+
+            <textarea name="address"
+                      rows="4">{{ vendor.address }}</textarea>
+
+        </div>
+
+    </div>
+
+    <!-- Shop Description -->
+
+    <div class="form-section">
+
+        <h2>Shop Description</h2>
+
+        <div class="form-group">
+
+            <textarea name="shop_description"
+                      rows="6">{{ vendor.shop_description }}</textarea>
+
+        </div>
+
+    </div>
+
+    <!-- Shop Logo -->
+
+    <div class="form-section">
+
+        <h2>Shop Logo</h2>
+
+        {% if vendor.shop_logo %}
+
+            <img src="{{ vendor.shop_logo.url }}"
+                 alt="Shop Logo"
+                 width="150">
+
+            <br><br>
+
+        {% endif %}
+
+        <div class="form-group">
+
+            <label>Upload New Logo</label>
+
+            <input type="file"
+                   name="shop_logo">
+
+        </div>
+
+    </div>
+
+    <!-- Buttons -->
+
+    <div class="form-buttons">
+
+        <button type="submit"
+                class="btn">
+
+            Update Profile
+
+        </button>
+
+        <a href="{% url 'profile' %}"
+           class="btn secondary-btn">
+
+            Cancel
+
+        </a>
+
+    </div>
+
+</form>
+
+</main>
+
+</body>
+</html>

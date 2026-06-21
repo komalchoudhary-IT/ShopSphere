@@ -2,7 +2,7 @@ from django.shortcuts import render , redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate ,logout,login
 from django.contrib.auth.decorators import login_required
-from .models import Vendor
+from .models import Vendor ,Product ,ProductImage
 
 # Create your views here.
 def home(request):
@@ -112,6 +112,56 @@ def profile(request):
 def profile(request):
     return render(request,'Vendor_data/Profile.html',{"user" : request.user})
 
+
+@login_required(login_url='vendor_login')
+def update_vendor_profile(request):
+
+    vendor = request.user.vendor
+
+    if request.method == "POST":
+
+        vendor.shop_name = request.POST.get(
+            "shop_name"
+        )
+
+        vendor.phone = request.POST.get(
+            "phone"
+        )
+
+        vendor.gst_number = request.POST.get(
+            "gst_number"
+        )
+
+        vendor.address = request.POST.get(
+            "address"
+        )
+
+        vendor.shop_description = request.POST.get(
+            "shop_description"
+        )
+
+        logo = request.FILES.get(
+            "shop_logo"
+        )
+
+        if logo:
+            vendor.shop_logo = logo
+
+        vendor.save()
+
+        return redirect(
+            "profile"
+        )
+
+    return render(
+        request,
+        "Vendor_data/update_profile.html",
+        {
+            "vendor": vendor
+        }
+    )
+    
+
 @login_required(login_url='login_user')
 def dashboard(request):
     return render(request,'Vendor_data/Dashboard.html',{"user" : request.user})
@@ -133,13 +183,104 @@ def logout_user(request):
     logout(request)
     return render(request,'Vendor_data/Login.html')
 
-@login_required
+@login_required(login_url='vendor_login')
 def add_products(request):
-    return render(request,'Vendor_data/Add_Product_page.html')
 
-@login_required
+    if request.method == "POST":
+
+        product_name = request.POST.get("product_name")
+        category = request.POST.get("category")
+        brand = request.POST.get("brand")
+
+        price = request.POST.get("price")
+        discount_price = request.POST.get("discount_price")
+
+        stock = request.POST.get("stock")
+        sku = request.POST.get("sku")
+
+        short_description = request.POST.get(
+            "short_description"
+        )
+
+        description = request.POST.get(
+            "description"
+        )
+
+        specifications = request.POST.get(
+            "specifications"
+        )
+
+        weight = request.POST.get("weight")
+
+        delivery_time = request.POST.get(
+            "delivery_time"
+        )
+
+        status = request.POST.get("status")
+
+        main_image = request.FILES.get(
+            "main_image"
+        )
+
+        Product.objects.create(
+
+            vendor=request.user.vendor,
+
+            product_name=product_name,
+
+            category=category,
+
+            brand=brand,
+
+            price=price,
+
+            discount_price=discount_price,
+
+            stock=stock,
+
+            sku=sku,
+
+            main_image=main_image,
+
+            short_description=short_description,
+
+            description=description,
+
+            specifications=specifications,
+
+            weight=weight,
+
+            delivery_time=delivery_time,
+
+            status=status
+        )
+
+        return redirect(
+            "manage_products"
+        )
+
+    return render(
+        request,
+        'Vendor_data/Add_Product_page.html'
+    )
+    
+
+@login_required(login_url='vendor_login')
 def manage_products(request):
-    return render(request,'Vendor_data/Manage_Products_page.html')
+
+    products = Product.objects.filter(
+        vendor=request.user.vendor
+    )
+
+    context = {
+        "products": products
+    }
+
+    return render(
+        request,
+        'Vendor_data/Manage_Products_page.html',
+        context
+    )
 
 @login_required
 def earnings(request):
@@ -147,4 +288,4 @@ def earnings(request):
 
 @login_required
 def orders(request):
-    return render(request,'Vendor_data/Orders_page(Vender View).html')
+    return render(request,'Vendor_data\Order_page(Vender View).html')

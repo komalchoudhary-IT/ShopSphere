@@ -28,6 +28,11 @@ urlpatterns = [
     path("login/",login_user,name='login_user'),
     path("logout/",logout_user,name='logout_user'),
     path("profile/",profile,name='profile'),
+    path(
+    'update_profile/',
+    update_vendor_profile,
+    name='update_vendor_profile'
+),
     path("dashboard/",dashboard,name='dashboard'),
     path("add_products/",add_products,name='add_products'),
     path("manage_products/",manage_products,name='manage_products'),
