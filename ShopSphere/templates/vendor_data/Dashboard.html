@@ -47,7 +47,7 @@
 
             <div>
                 <h1>Vendor Dashboard</h1>
-                <p>Welcome back, # </p>
+                <p>Welcome back, {{request.user.first_name}} </p>
             </div>
 
             <div class="vendor-info">
@@ -57,7 +57,7 @@
                     alt="Vendor"
                 >
 
-                <span>#</span>
+                <span>{{request.user.vendor.shop_name}}</span>
 
             </div>
 
