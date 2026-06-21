@@ -181,13 +181,15 @@
 
                 <td>
 
-                <a href="#">
+                <a href="{% url 'update_product' product.id %}"
+                class="btn">
                 Edit
                 </a>
 
-                <a href="#">
+                <a href="{% url 'delete_product' product.id %}"
+                class="btn btn-danger">
                 Delete
-                </a>
+                </a>            
 
                 </td>
 

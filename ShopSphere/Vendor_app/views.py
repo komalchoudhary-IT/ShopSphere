@@ -164,6 +164,33 @@ def update_vendor_profile(request):
 
 @login_required(login_url='login_user')
 def dashboard(request):
+    vendor = request.user.vendor
+
+    total_products = Product.objects.filter(
+        vendor=vendor
+    ).count()
+
+    active_products = Product.objects.filter(
+        vendor=vendor,
+        status='active'
+    ).count()
+
+    out_of_stock = Product.objects.filter(
+        vendor=vendor,
+        stock=0
+    ).count()
+
+    context = {
+
+        "vendor": vendor,
+
+        "total_products": total_products,
+
+        "active_products": active_products,
+
+        "out_of_stock": out_of_stock,
+    }
+
     return render(request,'Vendor_data/Dashboard.html',{"user" : request.user})
 
 @login_required
@@ -281,11 +308,86 @@ def manage_products(request):
         'Vendor_data/Manage_Products_page.html',
         context
     )
+    
+@login_required(login_url='vendor_login')
+def update_product(request, product_id):
 
-@login_required
+    product = Product.objects.get(
+        id=product_id,
+        vendor=request.user.vendor
+    )
+
+    if request.method == "POST":
+
+        product.product_name = request.POST.get(
+            "product_name"
+        )
+
+        product.category = request.POST.get(
+            "category"
+        )
+
+        product.brand = request.POST.get(
+            "brand"
+        )
+
+        product.price = request.POST.get(
+            "price"
+        )
+
+        product.discount_price = request.POST.get(
+            "discount_price"
+        )
+
+        product.stock = request.POST.get(
+            "stock"
+        )
+
+        product.description = request.POST.get(
+            "description"
+        )
+
+        image = request.FILES.get(
+            "main_image"
+        )
+
+        if image:
+            product.main_image = image
+
+        product.save()
+
+        return redirect(
+            "manage_products"
+        )
+
+    return render(
+        request,
+        "Vendor_data/Update_Product_page.html",
+        {
+            "product": product
+        }
+    )  
+
+
+@login_required(login_url='vendor_login')
+def delete_product(request, product_id):
+
+    product = Product.objects.get(
+        id=product_id,
+        vendor=request.user.vendor
+    )
+
+    product.delete()
+
+    return redirect(
+        "manage_products"
+    )
+
+
+@login_required(login_url='vendor_login')
 def earnings(request):
     return render(request,'Vendor_data/Earnings.html')
 
-@login_required
+@login_required(login_url='vendor_login')
 def orders(request):
     return render(request,'Vendor_data\Order_page(Vender View).html')

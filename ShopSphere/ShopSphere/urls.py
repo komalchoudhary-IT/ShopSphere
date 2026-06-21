@@ -28,16 +28,14 @@ urlpatterns = [
     path("login/",login_user,name='login_user'),
     path("logout/",logout_user,name='logout_user'),
     path("profile/",profile,name='profile'),
-    path(
-    'update_profile/',
-    update_vendor_profile,
-    name='update_vendor_profile'
-),
+    path('update_profile/',update_vendor_profile,name='update_vendor_profile'),
     path("dashboard/",dashboard,name='dashboard'),
     path("add_products/",add_products,name='add_products'),
+    path('update_product/<int:product_id>/',update_product,name='update_product'),    
     path("manage_products/",manage_products,name='manage_products'),
     path("earnings/",earnings,name='earnings'),
-    path("orders/",orders,name='orders')
+    path("orders/",orders,name='orders'),
+    path('delete_product/<int:product_id>/',delete_product,name='delete_product'),
 ]+ static(
     settings.MEDIA_URL,
     document_root =settings.MEDIA_ROOT
