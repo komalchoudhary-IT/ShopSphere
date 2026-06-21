@@ -29,6 +29,10 @@ urlpatterns = [
     path("logout/",logout_user,name='logout_user'),
     path("profile/",profile,name='profile'),
     path("dashboard/",dashboard,name='dashboard'),
+    path("add_products/",add_products,name='add_products'),
+    path("manage_products/",manage_products,name='manage_products'),
+    path("earnings/",earnings,name='earnings'),
+    path("orders/",orders,name='orders')
 ]+ static(
     settings.MEDIA_URL,
     document_root =settings.MEDIA_ROOT

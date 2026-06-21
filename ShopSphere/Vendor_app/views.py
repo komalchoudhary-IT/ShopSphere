@@ -132,3 +132,19 @@ def update_details(request):
 def logout_user(request):
     logout(request)
     return render(request,'Vendor_data/Login.html')
+
+@login_required
+def add_products(request):
+    return render(request,'Vendor_data/Add_Product_page.html')
+
+@login_required
+def manage_products(request):
+    return render(request,'Vendor_data/Manage_Products_page.html')
+
+@login_required
+def earnings(request):
+    return render(request,'Vendor_data/Earnings.html')
+
+@login_required
+def orders(request):
+    return render(request,'Vendor_data/Orders_page(Vender View).html')
