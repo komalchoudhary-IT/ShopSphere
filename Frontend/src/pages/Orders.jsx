@@ -19,11 +19,11 @@ export default function Orders() {
     }, []);
 
     return (
-        <div className ="order-card">
+        <div className ="order-card" id="customer-orders-page" >
             <h2>My Orders</h2>
 
             {orders.map((order) => (
-                <div key={order.id} style={{ border: "1px solid black", margin: 10, padding: 10 }}>
+                <div lassName="single-order-card" id={`order-${order.id}`} key={order.id} >
                     <h3>Order ID: {order.id}</h3>
                     <p>Status: {order.status}</p>
                     <p>Total: ₹{order.total_price}</p>
@@ -31,6 +31,17 @@ export default function Orders() {
                     <h4>Items:</h4>
                     {order.items.map((item) => (
                         <p key={item.id}>
+                             <img 
+                             src={
+                             item.product_image
+                             ? item.product_image.startsWith("http")
+                             ? item.product_image
+                             : `http://127.0.0.1:8000${item.product_image}`
+                             : "https://placehold.co/100x100"
+                             }
+                           alt={item.product_name}
+                          className="product-image order-product-image" 
+                            />
                             {item.product_name} - Qty: {item.quantity}
                         </p>
                     ))}

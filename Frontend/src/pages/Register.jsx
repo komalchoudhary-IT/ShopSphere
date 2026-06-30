@@ -20,24 +20,28 @@ export default function Register() {
             alert("Registration Success");
             console.log(res.data);
         } catch (err) {
-            alert("Error in registration");
+            if (err.response?.data?.username) {
+        alert(err.response.data.username[0]);
+    } else {
+        alert("Registration Failed");
+    }
         }
     };
 
     return (
-        <div  className="auth-container">
+        <div  className="auth-container" id="register-container">
             <h2>Register</h2>
 
-            <input name="username" placeholder="Username" onChange={handleChange} />
-            <input name="email" placeholder="Email" onChange={handleChange} />
-            <input name="password" type="password" placeholder="Password" onChange={handleChange} />
+            <input className="auth-input" name="username" placeholder="Username" onChange={handleChange} />
+            <input className="auth-input" name="email" placeholder="Email" onChange={handleChange} />
+            <input className="auth-input" name="password" type="password" placeholder="Password" onChange={handleChange} />
 
-            <select name="role" onChange={handleChange}>
+            <select className="auth-select" name="role" onChange={handleChange}>
                 <option value="customer">Customer</option>
                 <option value="vendor">Vendor</option>
             </select>
 
-            <button onClick={handleSubmit}>Register</button>
+            <button className="auth-btn" onClick={handleSubmit}>Register</button>
         </div>
     );
 }

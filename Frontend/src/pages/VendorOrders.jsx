@@ -19,16 +19,16 @@ export default function VendorOrders() {
     }, []);
 
     return (
-        <div className="order-card">
+        <div className="order-card" id="vendor-orders-page">
             <h2>Vendor Orders</h2>
 
             {orders.map((item, index) => (
-                <div key={index} style={{ border: "1px solid gray", margin: 10, padding: 10 }}>
+                <div key={index} className="vendor-order-item" id={`vendor-order-${item.order_id}`}>
                     <h3>Order ID: {item.order_id}</h3>
                     <p>Product: {item.product}</p>
                     <p>Qty: {item.quantity}</p>
-                    <p>Customer: {item.customer}</p>
-                    <p>Status: {item.status}</p>
+                    <p className="customer-name">Customer: {item.customer}</p>
+                    <p className="order-status">Status: {item.status}</p>
                 </div>
             ))}
         </div>

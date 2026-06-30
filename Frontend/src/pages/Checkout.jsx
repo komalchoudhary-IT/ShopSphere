@@ -34,14 +34,14 @@ export default function Checkout() {
     };
 
     return (
-        <div className="checkout-container">
+        <div className="checkout-container" id="checkout-page">
 
             <h2>Checkout</h2>
 
             <div className="checkout-box">
 
                 {cartItems.map((item) => (
-                    <div className="checkout-item" key={item.id}>
+                    <div className="checkout-item"  id={`checkout-item-${item.id}`} key={item.id}>
                         <h3>{item.product_name}</h3>
                         <p>Price: ₹{item.product_price}</p>
                         <p>Quantity: {item.quantity}</p>
@@ -53,7 +53,7 @@ export default function Checkout() {
 
                 <h3>Total: ₹{total}</h3>
 
-                <button className="place-order-btn" onClick={placeOrder}>
+                <button className="place-order-btn" id="place-order-button" onClick={placeOrder}>
                     Place Order
                 </button>
 

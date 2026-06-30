@@ -58,7 +58,7 @@ class ViewCartView(APIView):
             )
 
         items = CartItem.objects.filter(cart=cart)
-        serializer = CartItemSerializer(items, many=True)
+        serializer = CartItemSerializer(items, many=True,context={"request": request})
 
         return Response(serializer.data)
     

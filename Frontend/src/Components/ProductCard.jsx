@@ -1,6 +1,8 @@
 import api from "../api/axios";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, refreshProducts }) {
+
+    const role = localStorage.getItem("role");
 
     const addToCart = async () => {
         try {
@@ -9,19 +11,63 @@ export default function ProductCard({ product }) {
                 quantity: 1
             });
 
-            alert("Added to cart");
+            alert("Added to Cart");
         } catch (err) {
-            alert("Login required or error");
+            alert("Login required");
+        }
+    };
+
+    const deleteProduct = async () => {
+        try {
+            await api.delete(`products/delete/${product.id}/`);
+
+            alert("Product Deleted");
+
+            if (refreshProducts) {
+                refreshProducts();
+            }
+
+        } catch (err) {
+            alert("Delete Failed");
         }
     };
 
     return (
-        <div>
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p>₹ {product.price}</p>
+        <div className="product-card" id={`product-${product.id}`}>
+            <img
+            src={
+            product.image
+            ? product.image.startsWith("http")
+                ? product.image
+                : `http://127.0.0.1:8000${product.image}`
+            : "https://via.placeholder.com/200"
+            }
+             alt={product.name}
+             className="product-image"
+            />
+            <h3 className="product-title">{product.name}</h3>
 
-            <button onClick={addToCart}>Add to Cart</button>
+            <p className="product-description">{product.description}</p>
+
+            <h4 className="product-price">₹ {product.price}</h4>
+
+            {/* Customer */}
+            {role === "customer" && (
+                <button onClick={addToCart} className="cart-btn">
+                    Add to Cart
+                </button>
+            )}
+
+            {/* Vendor */}
+            {role === "vendor" && (
+                <>
+                    <button className="edit-btn">Edit</button>
+
+                    <button className="delete-btn" onClick={deleteProduct}>
+                        Delete
+                    </button>
+                </>
+            )}
         </div>
     );
 }

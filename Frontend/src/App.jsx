@@ -7,11 +7,16 @@ import Cart from "./pages/Cart";
 import Orders from "./pages/Orders";
 import VendorOrders from "./pages/VendorOrders";
 import Checkout from "./pages/Checkout";
-
+import AddProduct from "./pages/AddProduct";
+import MyProducts from "./pages/MyProducts";
+import EditProduct from "./pages/EditProduct";
+import ProductList from "./pages/ProductList";
+import Footer from "./Components/Footer";
 function App() {
     return (
         <BrowserRouter>
         <Navbar /> 
+        
             <Routes>
                 <Route path="/" element={<Home/>} />
                 <Route path="/login" element={<Login />} />
@@ -20,7 +25,12 @@ function App() {
                 <Route path="/orders" element={<Orders />} />
                 <Route path="/vendor/orders" element={<VendorOrders />} />
                 <Route path="/checkout" element={<Checkout />} />
+                <Route path="/add-product" element={<AddProduct />} />
+                <Route path="/my-products" element={<MyProducts />} />
+                <Route path="/edit-product/:id" element={<EditProduct />} />
+                <Route path="/products" element={<ProductList />} />
             </Routes>
+            <Footer/>
         </BrowserRouter>
     );
 }

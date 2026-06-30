@@ -4,9 +4,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.decorators import api_view
 
-from .models import Product
-from .serializers import ProductSerializer
+from .models import *
+from .serializers import *
 # Create your views here.
 
 class AddProductView(APIView):
@@ -43,7 +44,7 @@ class MyProductsView(APIView):
 
     def get(self, request):
         products = Product.objects.filter(vendor=request.user)
-        serializer = ProductSerializer(products, many=True)
+        serializer = ProductSerializer(products, many=True, context={"request": request})
         return Response(serializer.data)
     
 
@@ -68,7 +69,8 @@ class UpdateProductView(APIView):
         serializer = ProductSerializer(
             product,
             data=request.data,
-            partial=True
+            partial=True,
+            context={"request": request}
         )
 
         if serializer.is_valid():
@@ -112,5 +114,24 @@ class ProductListView(APIView):
 
     def get(self, request):
         products = Product.objects.all().order_by("-created_at")
-        serializer = ProductSerializer(products, many=True)
+        serializer = ProductSerializer(products, many=True,context={"request": request})
         return Response(serializer.data)
+    
+
+@api_view(["GET"])
+def get_products(request):
+    category = request.GET.get("category")  # 👈 query param
+
+    if category and category != "all":
+        products = Product.objects.filter(category__name=category)
+    else:
+        products = Product.objects.all()
+
+    serializer = ProductSerializer(products, many=True)
+    return Response(serializer.data)
+
+@api_view(["GET"])
+def get_categories(request):
+    categories = Category.objects.all()
+    serializer = CategorySerializer(categories, many=True)
+    return Response(serializer.data)
