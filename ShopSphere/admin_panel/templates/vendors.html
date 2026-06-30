@@ -1,0 +1,45 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Vendor Management</title>
+</head>
+<body>
+
+<h1>Vendor Management</h1>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Status</th>
+    </tr>
+
+    {% for vendor in vendors %}
+    <tr>
+        <td>{{ vendor.id }}</td>
+        <td>{{ vendor.name }}</td>
+        <td>{{ vendor.email }}</td>
+        <td>{{ vendor.status }}</td>
+    </tr>
+    <td>
+    <a href="{% url 'approve_vendor' vendor.id %}">
+        Approve
+    </a>
+</td>
+  <td>
+    <a href="{% url 'delete_vendor' vendor.id %}">
+        Delete
+    </a>
+</td>
+    {% empty %}
+    <tr>
+        <td colspan="4">No Vendors Found</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+
+
