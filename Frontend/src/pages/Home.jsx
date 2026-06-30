@@ -4,54 +4,61 @@ import ProductCard from "../components/ProductCard";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("all"); // ✅ default to "all"
-  const categories = ["all", "Electronics", "Fashion", "Footwear", "Stationary", "Furniture"];
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  const categories = [
+    "all",
+    "Electronics",
+    "Fashion",
+    "Footwear",
+    "Stationary",
+    "Furniture",
+  ];
 
   const getProducts = async (category = "all") => {
     try {
-      const res = await api.get(`products/?category=${category}`);
+      const url =
+        category === "all"
+          ? "products/"
+          : `products/?category=${category}`;
+
+      const res = await api.get(url);
       setProducts(res.data);
     } catch (err) {
       console.log(err.response);
     }
   };
 
-  // Filter products based on selected category
-  const filteredProducts =
-    selectedCategory === "all"
-      ? products
-      : products.filter((p) => p.category === selectedCategory);
-
   useEffect(() => {
-    getProducts(selectedCategory); // ✅ fetch based on category
+    getProducts(selectedCategory);
   }, [selectedCategory]);
 
   return (
-    <div>
+    <div className="product-container">
       <h2>All Products</h2>
 
-      <div>
-        {filteredProducts.map((p) => ( // ✅ use filteredProducts
-          <ProductCard key={p.id} product={p} />
-        ))}
-      </div>
-
-      <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
+      <div className="category-bar">
         {categories.map((cat) => (
           <button
             key={cat}
+            className={`category-btn ${
+              selectedCategory === cat ? "active" : ""
+            }`}
             onClick={() => setSelectedCategory(cat)}
-            style={{
-              padding: "8px 12px",
-              background: selectedCategory === cat ? "black" : "#eee",
-              color: selectedCategory === cat ? "white" : "black",
-              border: "none",
-              cursor: "pointer",
-            }}
           >
             {cat}
           </button>
         ))}
+      </div>
+
+      <div className="product-grid">
+        {products.length > 0 ? (
+          products.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))
+        ) : (
+          <h3>No products found</h3>
+        )}
       </div>
     </div>
   );

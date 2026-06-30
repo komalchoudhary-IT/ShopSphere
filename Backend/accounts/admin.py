@@ -6,13 +6,13 @@ from .models import User
 class CustomUserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
         ("Additional Information", {
-            "fields": ("role",),
+            "fields": ("role","bio", "headline", "avatar"),
         }),
     )
 
     add_fieldsets = UserAdmin.add_fieldsets + (
         ("Additional Information", {
-            "fields": ("role",),
+            "fields": ("role","bio", "headline", "avatar"),
         }),
     )
 

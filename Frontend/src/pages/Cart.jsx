@@ -3,7 +3,6 @@ import api from "../api/axios";
 import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
-
     const [cartItems, setCartItems] = useState([]);
     const navigate = useNavigate();
 
@@ -19,22 +18,27 @@ export default function Cart() {
     useEffect(() => {
         getCart();
     }, []);
-    useEffect(() => {
-    console.log("CART DATA:", cartItems);
-}, [cartItems]);
 
     const updateQty = async (id, qty) => {
-        await api.put(`cart/update/${id}/`, { quantity: qty });
-        getCart();
+        try {
+            await api.put(`cart/update/${id}/`, { quantity: qty });
+            getCart();
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     const removeItem = async (id) => {
-        await api.delete(`cart/remove/${id}/`);
-        getCart();
+        try {
+            await api.delete(`cart/remove/${id}/`);
+            getCart();
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     const total = cartItems.reduce(
-        (acc, item) => acc + item.product_price * item.quantity,
+        (acc, item) => acc + Number(item.product_price) * item.quantity,
         0
     );
 
@@ -52,31 +56,88 @@ export default function Cart() {
         <div className="cart-container" id="cart-page">
             <h2>Your Cart</h2>
 
-            {cartItems.map((item) => (
-                <div key={item.id} className="cart-item" id={`cart-item-${item.id}`}>
-                
-                   <img src={item.product_image} className="product-image" />
-                        
+            {cartItems.length === 0 ? (
+                <h3>Your cart is empty.</h3>
+            ) : (
+                <>
+                    {cartItems.map((item) => (
+                        <div
+                            key={item.id}
+                            className="cart-item"
+                            id={`cart-item-${item.id}`}
+                        >
+                            <img
+                                src={item.product_image}
+                                alt={item.product_name}
+                                className="product-image"
+                            />
 
-                    <h3>{item.product_name}</h3>
-                    <p>₹ {item.product_price}</p>
+                            <div className="cart-details">
+                                <h3>{item.product_name}</h3>
 
-                    <div>
-                        <button onClick={() => updateQty(item.id, item.quantity + 1)} className="qty-btn increase-btn">+</button>
-                        <button className="qty-btn decrease-btn" onClick={() => updateQty(item.id, item.quantity - 1)}>-</button>
-                        <button className="remove-btn" onClick={() => removeItem(item.id)}>Remove</button>
+                                <p>₹ {item.product_price}</p>
+
+                                <div className="quantity-section">
+                                    <p className="quantity-text">
+                                        Qty: <span>{item.quantity}</span>
+                                    </p>
+
+                                    <button
+                                        className="qty-btn decrease-btn"
+                                        onClick={() => {
+                                            if (item.quantity > 1) {
+                                                updateQty(
+                                                    item.id,
+                                                    item.quantity - 1
+                                                );
+                                            }
+                                        }}
+                                    >
+                                        -
+                                    </button>
+
+                                    <button
+                                        className="qty-btn increase-btn"
+                                        onClick={() =>
+                                            updateQty(
+                                                item.id,
+                                                item.quantity + 1
+                                            )
+                                        }
+                                    >
+                                        +
+                                    </button>
+
+                                    <button
+                                        className="remove-btn"
+                                        onClick={() => removeItem(item.id)}
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+
+                    <div className="cart-summary">
+                        <h2>Total: ₹ {total}</h2>
+
+                        <button
+                            className="place-order-btn"
+                            onClick={placeOrder}
+                        >
+                            Place Order
+                        </button>
+
+                        <button
+                            className="checkout-btn"
+                            onClick={() => navigate("/checkout")}
+                        >
+                            Go to Checkout
+                        </button>
                     </div>
-
-                </div>
-            ))}
-
-            <h2>Total: ₹ {total}</h2>
-
-            <button onClick={placeOrder}>Place Order</button>
-
-            <button className="checkout-btn" onClick={() => navigate("/checkout")}>
-                Go to Checkout
-            </button>
+                </>
+            )}
         </div>
     );
 }

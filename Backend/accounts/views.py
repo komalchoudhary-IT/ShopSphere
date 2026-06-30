@@ -8,6 +8,7 @@ from rest_framework import status
 from .serializers import RegisterSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from .login_serializer import LoginSerializer
+from .serializers import UserSerializer
 from rest_framework.permissions import IsAuthenticated
 
 
@@ -55,18 +56,39 @@ class LoginView(APIView):
 
         return Response(serializer.errors, status=400)
     
-class ProfileView(APIView):
 
+
+
+
+class ProfileView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-
         user = request.user
 
-        return Response({
+        if not user or not user.is_authenticated:
+            return Response(
+                {"error": "Not authenticated"},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
 
-            "username": user.username,
-            "email": user.email,
-            "role": user.role
+        serializer = UserSerializer(user, context={"request": request})
+        return Response(serializer.data)
 
-        })
+    def put(self, request):
+      user = request.user
+
+      serializer = UserSerializer(
+        user,
+        data=request.data,
+        partial=True,
+        context={"request": request}
+    )
+
+      if serializer.is_valid():
+        serializer.save()
+        user.refresh_from_db()   # 🔥 IMPORTANT FIX
+
+        return Response(UserSerializer(user, context={"request": request}).data)
+
+      return Response(serializer.errors, status=400)

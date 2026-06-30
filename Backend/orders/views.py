@@ -73,6 +73,8 @@ class VendorOrdersView(APIView):
             data.append({
                 "order_id": item.order.id,
                 "product": item.product.name,
+                 "product_image": request.build_absolute_uri(item.product.image.url)
+                if item.product.image else None,
                 "quantity": item.quantity,
                 "price": item.price,
                 "status": item.order.status,

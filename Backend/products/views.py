@@ -5,6 +5,9 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
+from rest_framework.generics import RetrieveAPIView
+from django.db.models import Sum, Count
+from orders.models import OrderItem
 
 from .models import *
 from .serializers import *
@@ -123,7 +126,9 @@ def get_products(request):
     category = request.GET.get("category")  # 👈 query param
 
     if category and category != "all":
-        products = Product.objects.filter(category__name=category)
+        products = Product.objects.filter(category__name__iexact=category)
+        print("CATEGORY:", category)
+        print("PRODUCTS:", products)
     else:
         products = Product.objects.all()
 
@@ -135,3 +140,42 @@ def get_categories(request):
     categories = Category.objects.all()
     serializer = CategorySerializer(categories, many=True)
     return Response(serializer.data)
+
+
+class ProductDetailView(RetrieveAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    permission_classes = [AllowAny]
+
+
+
+class VendorDashboardView(APIView):
+      permission_classes = [IsAuthenticated]
+
+      def get(self, request):
+
+        products = Product.objects.filter(vendor=request.user)
+
+        total_products = products.count()
+
+        order_items = OrderItem.objects.filter(
+            product__vendor=request.user
+        )
+
+        total_orders = order_items.values("order").distinct().count()
+
+        total_sales = order_items.aggregate(
+            total=Sum("quantity")
+        )["total"] or 0
+
+        total_revenue = sum(
+            item.quantity * item.product.price
+            for item in order_items
+        )
+
+        return Response({
+            "total_products": total_products,
+            "total_orders": total_orders,
+            "total_sales": total_sales,
+            "total_revenue": total_revenue,
+        })

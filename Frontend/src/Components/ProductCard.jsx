@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 
 export default function ProductCard({ product, refreshProducts }) {
 
     const role = localStorage.getItem("role");
+    const navigate = useNavigate();
 
     const addToCart = async () => {
         try {
@@ -33,18 +35,24 @@ export default function ProductCard({ product, refreshProducts }) {
     };
 
     return (
-        <div className="product-card" id={`product-${product.id}`}>
+        <div
+            className="product-card"
+            id={`product-${product.id}`}
+            onClick={() => navigate(`/product/${product.id}`)}
+            style={{ cursor: "pointer" }}
+        >
             <img
-            src={
-            product.image
-            ? product.image.startsWith("http")
-                ? product.image
-                : `http://127.0.0.1:8000${product.image}`
-            : "https://via.placeholder.com/200"
-            }
-             alt={product.name}
-             className="product-image"
+                src={
+                    product.image
+                        ? product.image.startsWith("http")
+                            ? product.image
+                            : `http://127.0.0.1:8000${product.image}`
+                        : "https://via.placeholder.com/200"
+                }
+                alt={product.name}
+                className="product-image"
             />
+
             <h3 className="product-title">{product.name}</h3>
 
             <p className="product-description">{product.description}</p>
@@ -53,7 +61,13 @@ export default function ProductCard({ product, refreshProducts }) {
 
             {/* Customer */}
             {role === "customer" && (
-                <button onClick={addToCart} className="cart-btn">
+                <button
+                    className="cart-btn"
+                    onClick={(e) => {
+                        e.stopPropagation(); // Prevent navigation
+                        addToCart();
+                    }}
+                >
                     Add to Cart
                 </button>
             )}
@@ -61,9 +75,23 @@ export default function ProductCard({ product, refreshProducts }) {
             {/* Vendor */}
             {role === "vendor" && (
                 <>
-                    <button className="edit-btn">Edit</button>
+                    <button
+                        className="edit-btn"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            // We'll implement edit later
+                        }}
+                    >
+                        Edit
+                    </button>
 
-                    <button className="delete-btn" onClick={deleteProduct}>
+                    <button
+                        className="delete-btn"
+                        onClick={(e) => {
+                            e.stopPropagation(); // Prevent navigation
+                            deleteProduct();
+                        }}
+                    >
                         Delete
                     </button>
                 </>

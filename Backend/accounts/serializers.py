@@ -15,3 +15,27 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+    
+
+class UserSerializer(serializers.ModelSerializer):
+
+    avatar = serializers.SerializerMethodField()
+
+    class Meta:
+        model = User
+        fields = [
+            "id",
+            "username",
+            "email",
+            "role",
+            "bio",
+            "headline",
+            "avatar",
+        ]
+
+    def get_avatar(self, obj):
+        request = self.context.get("request")
+
+        if obj.avatar:
+            return request.build_absolute_uri(obj.avatar.url)
+        return None

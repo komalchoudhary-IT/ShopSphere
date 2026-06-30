@@ -12,6 +12,9 @@ import MyProducts from "./pages/MyProducts";
 import EditProduct from "./pages/EditProduct";
 import ProductList from "./pages/ProductList";
 import Footer from "./Components/Footer";
+import ProductDetails from "./pages/ProductDetails";
+import VendorDashboard from "./pages/VendorDashboard";
+import Profile from "./pages/Profile";
 function App() {
     return (
         <BrowserRouter>
@@ -29,6 +32,9 @@ function App() {
                 <Route path="/my-products" element={<MyProducts />} />
                 <Route path="/edit-product/:id" element={<EditProduct />} />
                 <Route path="/products" element={<ProductList />} />
+                <Route path="/product/:id" element={<ProductDetails />} />
+                <Route path="/vendor-dashboard" element={<VendorDashboard />} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
             <Footer/>
         </BrowserRouter>

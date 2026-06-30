@@ -23,7 +23,7 @@ export default function Orders() {
             <h2>My Orders</h2>
 
             {orders.map((order) => (
-                <div lassName="single-order-card" id={`order-${order.id}`} key={order.id} >
+                <div className="single-order-card" id={`order-${order.id}`} key={order.id} >
                     <h3>Order ID: {order.id}</h3>
                     <p>Status: {order.status}</p>
                     <p>Total: ₹{order.total_price}</p>

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 export default function Navbar() {
 
     const role = localStorage.getItem("role");
+    
     const navigate = useNavigate();
  
     const logout = () => {
@@ -39,11 +40,15 @@ export default function Navbar() {
                         <Link className="nav-link" to="/add-product">Add Product</Link>
                         <Link className="nav-link" to="/my-products">My Products</Link>
                         <Link className="nav-link" to="/vendor/orders">Vendor Orders</Link>
+                        <Link className="nav-link"to="/vendor-dashboard">Dashboard</Link>
                     </>
                 )}
-                {/* {role && (
-                        <button onClick={logout}>Logout</button>
-                )} */}
+                {role && (
+                <Link className="nav-link" to="/profile">
+                 Profile
+                </Link>
+          )}
+                
                 <button className="logout-btn" onClick={logout}>LOGOUT</button>
             </div>
 
