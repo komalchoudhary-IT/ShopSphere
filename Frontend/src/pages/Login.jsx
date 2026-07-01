@@ -13,35 +13,37 @@ export default function Login() {
                 username,
                 password
             });
-             localStorage.setItem("access", res.data.access);
+            localStorage.setItem("access", res.data.access);
             localStorage.setItem("refresh", res.data.refresh);
             localStorage.setItem("role", res.data.role);
             localStorage.setItem("username", res.data.username);
-            
+
+            setUsername("");
+            setPassword("");
+
             if (res.data.role === "vendor") {
-              navigate("/my-products");
+                navigate("/my-products");
             } else {
-               navigate("/");
+                navigate("/");
             }
         } catch (err) {
             console.log(err);
-    console.log("Status:", err.response?.status);
-    console.log("Data:", err.response?.data);
-    console.log("Message:", err.message);
+            console.log("Status:", err.response?.status);
+            console.log("Data:", err.response?.data);
+            console.log("Message:", err.message);
 
-    alert(err.message);
+            alert(err.message);
         }
     };
 
     return (
-        <div  className="auth-container" id="login-container">
-            <h2
-            className="auth-title"
-            >Login</h2>
+        <div className="auth-container" id="login-container">
+            <h2 className="auth-title">Login</h2>
 
             <input
                 className="auth-input"
                 placeholder="Username"
+                value={username}
                 onChange={(e) => setUsername(e.target.value)}
             />
 
@@ -49,6 +51,7 @@ export default function Login() {
                 className="auth-input"
                 type="password"
                 placeholder="Password"
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
 

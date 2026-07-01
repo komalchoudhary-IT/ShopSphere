@@ -40,10 +40,11 @@ class AddToCartView(APIView):
 
         cart_item.save()
 
-        serializer = CartItemSerializer(cart_item)
+        serializer = CartItemSerializer(cart_item, context={"request": request})
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
+
 
 class ViewCartView(APIView):
     permission_classes = [IsAuthenticated]
@@ -89,7 +90,7 @@ class UpdateCartView(APIView):
         cart_item.quantity = quantity
         cart_item.save()
 
-        serializer = CartItemSerializer(cart_item,context={"request": request})
+        serializer = CartItemSerializer(cart_item, context={"request": request})
         return Response(serializer.data)
     
 

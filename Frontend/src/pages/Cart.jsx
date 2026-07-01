@@ -47,6 +47,7 @@ export default function Cart() {
             await api.post("orders/place/");
             alert("Order Placed Successfully");
             setCartItems([]);
+            navigate("/orders");
         } catch (err) {
             alert("Order Failed");
         }

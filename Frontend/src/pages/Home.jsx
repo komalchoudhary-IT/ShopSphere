@@ -1,49 +1,52 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../Components/ProductCard";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const categories = [
-    "all",
-    "Electronics",
-    "Fashion",
-    "Footwear",
-    "Stationary",
-    "Furniture",
-  ];
 
   const getProducts = async (category = "all") => {
     try {
       const url =
-        category === "all"
-          ? "products/"
-          : `products/?category=${category}`;
-
+        category && category !== "all"
+          ? `products/?category=${category}`
+          : `products/`;
       const res = await api.get(url);
       setProducts(res.data);
+    } catch (err) {
+      console.log(err.response || err);
+    }
+  };
+
+  const getCategories = async () => {
+    try {
+      const res = await api.get("products/categories/");
+      setCategories(["all", ...res.data.map((cat) => cat.name)]);
     } catch (err) {
       console.log(err.response);
     }
   };
 
   useEffect(() => {
+    getCategories();
+  }, []);
+
+  useEffect(() => {
     getProducts(selectedCategory);
   }, [selectedCategory]);
 
   return (
-    <div className="product-container">
-      <h2>All Products</h2>
+    <div className="home-container">
+      <h2 className="home-title">All Products</h2>
 
-      <div className="category-bar">
+      {/* Categories bar */}
+      <div className="categories-container">
         {categories.map((cat) => (
           <button
             key={cat}
-            className={`category-btn ${
-              selectedCategory === cat ? "active" : ""
-            }`}
+            className={selectedCategory === cat ? "active" : ""}
             onClick={() => setSelectedCategory(cat)}
           >
             {cat}
@@ -51,13 +54,16 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="product-grid">
+      {/* Products grid */}
+      <div className="products-grid">
         {products.length > 0 ? (
           products.map((p) => (
-            <ProductCard key={p.id} product={p} />
+            <div className="product-box" key={p.id}>
+              <ProductCard product={p} />
+            </div>
           ))
         ) : (
-          <h3>No products found</h3>
+          <p className="no-products">No products found in this category.</p>
         )}
       </div>
     </div>

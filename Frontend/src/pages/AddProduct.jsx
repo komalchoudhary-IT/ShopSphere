@@ -104,6 +104,14 @@ useEffect(() => {
                 placeholder="Price"
                 onChange={handleChange}
             />
+            <input
+                className="auth-input"
+                name="stock"
+                type="number"
+                placeholder="Stock"
+                value={form.stock}
+                onChange={handleChange}
+            />
 
            <select
             className="auth-input"

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 
 export default function Checkout() {
 
     const [cartItems, setCartItems] = useState([]);
+    const navigate = useNavigate();
 
     const getCart = async () => {
         try {
@@ -28,6 +30,7 @@ export default function Checkout() {
             await api.post("orders/place/");
             alert("Order Placed Successfully!");
             setCartItems([]);
+            navigate("/orders");
         } catch (err) {
             alert("Order Failed");
         }

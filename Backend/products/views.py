@@ -116,8 +116,14 @@ class ProductListView(APIView):
     permission_classes = [AllowAny]
 
     def get(self, request):
-        products = Product.objects.all().order_by("-created_at")
-        serializer = ProductSerializer(products, many=True,context={"request": request})
+        category = request.GET.get("category")
+
+        if category and category != "all":
+            products = Product.objects.filter(category__name=category).order_by("-created_at")
+        else:
+            products = Product.objects.all().order_by("-created_at")
+
+        serializer = ProductSerializer(products, many=True, context={"request": request})
         return Response(serializer.data)
     
 
