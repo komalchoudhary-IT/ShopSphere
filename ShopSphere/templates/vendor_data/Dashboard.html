@@ -84,211 +84,137 @@
 
 </section>
 
-        <!-- Quick Actions -->
+        <!-- Shop Information -->
 
-        <section class="quick-actions">
+<section class="shop-information">
 
-            <h2>Quick Actions</h2>
+    <h2>Shop Information</h2>
 
-            <div class="action-buttons">
+    <p>
+        <strong>Shop Name:</strong>
+        {{ vendor.shop_name }}
+    </p>
 
-                <a href="/add_products/" class="btn">
-                    Add Product
-                </a>
+    <p>
+        <strong>Phone:</strong>
+        {{ vendor.phone }}
+    </p>
 
-                <a href="/orders/" class="btn">
-                    View Orders
-                </a>
+    <p>
+        <strong>GST Number:</strong>
+        {{ vendor.gst_number }}
+    </p>
 
-                <a href="/manage_products/" class="btn">
-                    Manage Products
-                </a>
+    <p>
+        <strong>Status:</strong>
 
-                <a href="/earnings/" class="btn">
-                    View Earnings
-                </a>
+        {% if vendor.is_approved %}
+            Approved ✅
+        {% else %}
+            Pending Approval ⏳
+        {% endif %}
+    </p>
 
-            </div>
+</section>
 
-        </section>
 
-        <!-- Recent Orders -->
+<!-- Recent Products -->
 
-        <section class="recent-orders">
+<section class="recent-products">
 
-            <h2>Recent Orders</h2>
+    <h2>Recent Products</h2>
 
-            <table>
+    <table>
 
-                <thead>
+        <thead>
 
-                    <tr>
+            <tr>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+            </tr>
 
-                        <th>Order ID</th>
+        </thead>
 
-                        <th>Customer</th>
+        <tbody>
 
-                        <th>Product</th>
+        {% for product in recent_products %}
 
-                        <th>Amount</th>
+            <tr>
 
-                        <th>Status</th>
+                <td>
 
-                    </tr>
+                    {% if product.main_image %}
 
-                </thead>
+                    <img src="{{ product.main_image.url }}"
+                         width="60">
 
-                <tbody>
+                    {% endif %}
 
-                    <tr>
+                </td>
 
-                        <td>#1001</td>
+                <td>
+                    {{ product.product_name }}
+                </td>
 
-                        <td>Rahul Sharma</td>
+                <td>
+                    ₹{{ product.price }}
+                </td>
 
-                        <td>Wireless Mouse</td>
+                <td>
+                    {{ product.stock }}
+                </td>
 
-                        <td>₹799</td>
+                <td>
+                    {{ product.status }}
+                </td>
 
-                        <td>Delivered</td>
+            </tr>
 
-                    </tr>
+        {% empty %}
 
-                    <tr>
+            <tr>
+                <td colspan="5">
+                    No Products Added Yet.
+                </td>
+            </tr>
 
-                        <td>#1002</td>
+        {% endfor %}
 
-                        <td>Aman Gupta</td>
+        </tbody>
 
-                        <td>Gaming Keyboard</td>
+    </table>
 
-                        <td>₹1,999</td>
+</section>
 
-                        <td>Pending</td>
 
-                    </tr>
+<!-- Notifications -->
 
-                    <tr>
+<section class="notifications">
 
-                        <td>#1003</td>
+    <h2>Notifications</h2>
 
-                        <td>Priya Singh</td>
+    <ul>
 
-                        <td>Bluetooth Speaker</td>
+        <li>
+            Complete your vendor profile to improve visibility.
+        </li>
 
-                        <td>₹1,299</td>
+        <li>
+            Add more products to increase sales opportunities.
+        </li>
 
-                        <td>Shipped</td>
+        <li>
+            Keep your inventory updated regularly.
+        </li>
 
-                    </tr>
+    </ul>
 
-                </tbody>
+</section>
 
-            </table>
+</main>
 
-        </section>
-
-        <!-- Recent Products -->
-
-        <section class="recent-products">
-
-            <h2>Latest Products</h2>
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>Product ID</th>
-
-                        <th>Product Name</th>
-
-                        <th>Category</th>
-
-                        <th>Price</th>
-
-                        <th>Stock</th>
-
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-
-                        <td>P101</td>
-
-                        <td>Wireless Mouse</td>
-
-                        <td>Electronics</td>
-
-                        <td>₹799</td>
-
-                        <td>120</td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>P102</td>
-
-                        <td>Gaming Keyboard</td>
-
-                        <td>Electronics</td>
-
-                        <td>₹1,999</td>
-
-                        <td>65</td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>P103</td>
-
-                        <td>Bluetooth Speaker</td>
-
-                        <td>Electronics</td>
-
-                        <td>₹1,299</td>
-
-                        <td>90</td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </section>
-
-        <!-- Notifications -->
-
-        <section class="notifications">
-
-            <h2>Notifications</h2>
-
-            <ul>
-
-                <li>
-                    New order received (#1004)
-                </li>
-
-                <li>
-                    Product "Smart Watch" stock is running low.
-                </li>
-
-                <li>
-                    ₹12,000 payout successfully processed.
-                </li>
-
-            </ul>
-
-        </section>
-
-    </main>
-
-</body>
+</body> 
 </html>
