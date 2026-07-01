@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.generics import RetrieveAPIView
 from django.db.models import Sum, Count
 from orders.models import OrderItem
@@ -128,6 +128,8 @@ class ProductListView(APIView):
     
 
 @api_view(["GET"])
+@authentication_classes([])
+@permission_classes([AllowAny])
 def get_products(request):
     category = request.GET.get("category")  # 👈 query param
 
@@ -142,6 +144,8 @@ def get_products(request):
     return Response(serializer.data)
 
 @api_view(["GET"])
+@authentication_classes([])
+@permission_classes([AllowAny])
 def get_categories(request):
     categories = Category.objects.all()
     serializer = CategorySerializer(categories, many=True)

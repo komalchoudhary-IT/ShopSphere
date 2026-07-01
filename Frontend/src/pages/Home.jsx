@@ -39,7 +39,7 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <h2 className="home-title">All Products</h2>
+      {/* <h2 className="home-title">All Products</h2> */}
 
       {/* Categories bar */}
       <div className="categories-container">
@@ -52,6 +52,13 @@ export default function Home() {
             {cat}
           </button>
         ))}
+      </div>
+      <div className="promo-banner-box">
+        
+        <div className="promo-banner-content">
+          <h2>Welcome to ShopSphere</h2>
+          <p>Find it. Love it. Buy it. Elevate your everyday essentials today.</p>
+        </div>
       </div>
 
       {/* Products grid */}
